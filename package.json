@@ -1,0 +1,24 @@
+{
+  "name": "projettechno-web",
+  "version": "1.0.0",
+  "description": "coucou c'est la team Enzo Theo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Toto028-GT/ProjetTechno-Web.git"
+  },
+  "author": "Theo&Enzo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Toto028-GT/ProjetTechno-Web/issues"
+  },
+  "homepage": "https://github.com/Toto028-GT/ProjetTechno-Web#readme",
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+  
+}
