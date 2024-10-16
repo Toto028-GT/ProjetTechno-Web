@@ -1,11 +1,13 @@
-import { Request, Response } from 'express';
+import { Request, Response } from "express";
 
 export function getHomePage(req: Request, res: Response) {
-	res.render("home",{title: "HOME",
+  res.render("home", {
+    title: "HOME",
     name: "HOME",
-    description: "Voici la page home."});
+    description: "Voici la page home.",
+  });
 }
 
 export function getAppartPage(req: Request, res: Response) {
-	res.render("appart", {title: "Appartements"});
+  res.render("appart", { title: "Appartements" });
 }

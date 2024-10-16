@@ -1,10 +1,12 @@
 const globals = require("globals");
 
-module.exports = [{
+module.exports = [
+  {
     languageOptions: {
-        sourceType: "commonjs",
-        globals: {
-          ...globals.node
-        }
-    }
-}];
+      sourceType: "commonjs",
+      globals: {
+        ...globals.node,
+      },
+    },
+  },
+];
