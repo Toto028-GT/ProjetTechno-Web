@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
     getHomePage(req,res);
 });
 
-router.get("/appartement", (req, res) => {
+router.get("/appartements", (req, res) => {
     getAppartPage(req,res);
 });
 
