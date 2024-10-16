@@ -7,5 +7,5 @@ export function getHomePage(req: Request, res: Response) {
 }
 
 export function getAppartPage(req: Request, res: Response) {
-	res.render("home");
+	res.render("appart");
 }
