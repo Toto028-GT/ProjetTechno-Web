@@ -5,3 +5,7 @@ export function getHomePage(req: Request, res: Response) {
     name: "Appart1",
     description: "description"});
 }
+
+export function getAppartPage(req: Request, res: Response) {
+	res.render("home");
+}
