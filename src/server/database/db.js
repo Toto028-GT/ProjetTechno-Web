@@ -6,7 +6,7 @@ const client = new MongoClient(mongoUrl);
 export const getCollections = async() => {
   try{
     await client.connect();
-    const collection = client.db().collection('logements');
+    const collection = client.db('logement').collection('logements');
     return collection;
   }
   catch (error) {
