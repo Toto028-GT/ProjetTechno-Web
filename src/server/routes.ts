@@ -1,5 +1,5 @@
 import express from "express";
-import { getHomePage, getAppartPage,getLogements } from "./controllers";
+import { getHomePage, getAppartPage,getLogements,getLogementsById } from "./controllers";
 
 const router = express.Router();
 export default router;
@@ -15,4 +15,8 @@ router.get("/appartements", (req, res) => {
 
 router.get("/logements", (req, res) => {
   getLogements(req,res);
+});
+
+router.get("/logements/:id", (req, res) => {
+  getLogementsById(req,res);
 });
