@@ -1,10 +1,13 @@
 import express from "express";
+import bodyParser from 'body-parser';
 import { engine } from "express-handlebars";
 import path from "path";
 import router from "./routes";
 
 const app = express();
 app.engine("handlebars", engine());
+
+app.use(bodyParser.json());
 
 app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "../views"));
