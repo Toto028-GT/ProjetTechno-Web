@@ -32,3 +32,27 @@ router.delete("/logements/:id", (req, res) => {
 router.put("/logements/:id", (req, res) => {
   updateLogements(req,res);
 });
+
+router.get("/login", (req, res) => {
+  res.render('user', { error: null});
+});
+
+const users = [
+  { username: 'testuser', password: "test1" } // Password: "password123"
+ ];
+
+ router.post('/login', async (req, res) => {
+  const { username, password } = req.body;
+  const user = users.find(u => u.username === username);
+  if (!user) {
+      return res.render('login', { error: 'Nom d’utilisateur incorrect.' });
+  }
+  
+  const match = users[password] === password;
+  if (!match) {
+      return res.render('login', { error: 'Mot de passe incorrect.' });
+  }
+  
+  // Authentification réussie
+  res.render('dashboard', { username });
+ });
