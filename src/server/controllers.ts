@@ -52,3 +52,4 @@ export async function updateLogements(req: Request, res: Response) {
   //console.log(await deleteElement(new ObjectId(logementId)))
   res.status(200).json(await updateElement(new ObjectId(logementId),update));
 } 
+
