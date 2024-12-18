@@ -1,8 +1,7 @@
-##PROJET TECHNO-WEB
+#PROJET TECHNO-WEB
 
-
-__**les étape qui fonctionne:**__
-*Checklist backend pour le projet* 
+##les étape qui fonctionne:  
+*Checklist backend pour le projet*   
 - [X] Dépôt Git avec historique
 - [X] package.json avec dépendances et scripts
 - [X] Serveur express qui se lance
@@ -25,13 +24,13 @@ __**les étape qui fonctionne:**__
 - [ ] Gestion des autorisations et 403 en cas de d’accès à la ressource d’un tiers
 
 
-__**Comment lancer le projet:**__  
+###Comment lancer le projet:  
 
 -une fois clone faite: npm install mongodb  
 -puis pour lancer le serveur: npm run dev  
 
 
-__**Pour crée la base de donner sur votre machine:**__  
+###Pour crée la base de donner sur votre machine: 
 
 -mkdir docker_mongo  
 -docker pull mongo  
