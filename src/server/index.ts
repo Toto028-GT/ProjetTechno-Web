@@ -31,3 +31,4 @@ const server = app.listen(PORT, () =>
 app.use(router);
 
 app.use('/', express.static(path.join(__dirname, '../assets')))
+

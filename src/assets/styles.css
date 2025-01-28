@@ -47,3 +47,5 @@ body {
 #container button:hover {
     background-color: #0056b3;
 }
+
+#map { height: 800px; width: 800px; }
