@@ -12,4 +12,4 @@ until docker exec mon-container-mongodb mongosh --eval "db.runCommand({ connecti
   sleep 1
 done
 
-docker exec -it mon-container-mongodb mongosh --file /app/script.js
+docker exec -it mon-container-mongodb mongosh --file /app/setup/script.js
