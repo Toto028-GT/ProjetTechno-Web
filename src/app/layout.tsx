@@ -24,11 +24,30 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+  <head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossOrigin=""
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossOrigin="">
+    </script>
+
+    <title>TITRE1</title>  
+  </head>
+  <body
+    className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <main role="main">
+      <div className="container ">
         {children}
-      </body>
-    </html>
+      </div>
+      <div className="p-3 position-absolute bottom-0 end-0">
+        <a href="/" className="btn btn-primary btn-lg px-4 me-md-2">HOME</a>
+      </div>
+    </main>
+  </body>
+</html>
   );
 }
+
