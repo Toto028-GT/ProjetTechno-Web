@@ -8,12 +8,11 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600">
+    <div className="min-h-screen  bg-[rgb(243,238,212)]">
     <div className="container mx-auto px-4 py-16">
       <div className="max-w-4xl mx-auto text-center text-white">
-        <h1 className="text-5xl font-bold mb-8">Trouvez Votre Appartement Idéal</h1>
-        <p className="text-xl mb-12">Simplifiez votre recherche d'appartement avec notre plateforme intuitive</p>
-        
+        <h1 className="text-5xl font-bold mb-8 text-gray-900">Trouvez Votre Appartement Idéal</h1>
+        <p className="text-xl mb-12 text-gray-900">Simplifiez votre recherche d'appartement avec notre plateforme intuitive</p>
         <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
           <button
             onClick={() => router.push('/appart')}
@@ -21,7 +20,7 @@ export default function Home() {
           >
             <Building2 className="w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-transform" />
             <h2 className="text-2xl font-semibold mb-2">Liste des Appartements</h2>
-            <p className="text-gray-600">Consultez tous nos appartements disponibles</p>
+            <p className="text-gray-600">Consultez tous vos appartements enregistrer</p>
           </button>
 
           <button

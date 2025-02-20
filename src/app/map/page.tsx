@@ -24,7 +24,7 @@ export default function ApartmentMap() {
           Retour à l'accueil
         </button>
 
-        <h1 className="text-4xl font-bold mb-8">Carte des Appartements</h1>
+        <h1 className="text-4xl font-bold mb-8 text-gray-900">Carte des Appartements</h1>
         
         <div className="h-[1000px] rounded-lg overflow-hidden shadow-lg">
           <MapComponent />
