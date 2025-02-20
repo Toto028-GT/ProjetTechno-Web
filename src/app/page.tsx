@@ -1,101 +1,48 @@
+'use client';
+
 import Image from "next/image";
+import { useRouter } from 'next/navigation';
+import { Building2, Map } from 'lucide-react';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const router = useRouter();
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600">
+    <div className="container mx-auto px-4 py-16">
+      <div className="max-w-4xl mx-auto text-center text-white">
+        <h1 className="text-5xl font-bold mb-8">Trouvez Votre Appartement Idéal</h1>
+        <p className="text-xl mb-12">Simplifiez votre recherche d'appartement avec notre plateforme intuitive</p>
+        
+        <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+          <button
+            onClick={() => router.push('/appart')}
+            className="bg-white text-purple-600 rounded-lg p-8 shadow-lg hover:shadow-xl transition-all group"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <Building2 className="w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-transform" />
+            <h2 className="text-2xl font-semibold mb-2">Liste des Appartements</h2>
+            <p className="text-gray-600">Consultez tous nos appartements disponibles</p>
+          </button>
+
+          <button
+            onClick={() => router.push('/map')}
+            className="bg-white text-purple-600 rounded-lg p-8 shadow-lg hover:shadow-xl transition-all group"
           >
-            Read our docs
-          </a>
+            <Map className="w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-transform" />
+            <h2 className="text-2xl font-semibold mb-2">Carte Interactive</h2>
+            <p className="text-gray-600">Visualisez les appartements sur la carte</p>
+          </button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+
+      <div className="mt-24">
+        <img
+          src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+          alt="Appartement moderne"
+          className="rounded-xl shadow-2xl mx-auto"
+        />
+      </div>
     </div>
+  </div>
   );
 }
