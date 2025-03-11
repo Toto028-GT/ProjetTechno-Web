@@ -1,14 +1,6 @@
 import { ObjectId } from "mongodb";
-import { getCollections } from "../database/db.js";
+import { getCollections } from "../database/db.ts";
 
-export interface LogementInput {
-    adresse: string;
-    prix: number;
-    superficie: number;
-    chambres: number;
-    disponibilite: boolean;
-    type: string;
-  }
 
 export async function getAllElement(){
     try {
@@ -16,12 +8,15 @@ export async function getAllElement(){
         // @ts-ignore
         const list = await collection.find().toArray();
         //Renvoyer le tableau JSON à l'utilisateur
-        console.log(list);
+        //console.log(list);
         return list;
     } catch (error) {
         console.log(error);
+        return []
     }
 }
+
+
 
 export async function getElementById(id: any){
     try {
