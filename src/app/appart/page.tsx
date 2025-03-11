@@ -3,25 +3,28 @@ import * as React from "react";
 import { Building2, DollarSign, Bed, Bath, Ruler, Car, Wifi, Home } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
+import {getAllElement} from '../models.ts'
 
 interface Apartment {
-  id: number;
-  name: string;
-  image: string;
-  price: number;
-  bedrooms: number;
-  bathrooms: number;
-  sqft: number;
-  parking: boolean;
-  internet: boolean;
-  address: string;
+  id: number,
+  name: string,
+  adresse: string,
+  image: string,
+  prix: number,
+  superficie: number,
+  chambres: number,
+  sdb: number,
+  parking: boolean,
+  internet: boolean,
+  type: string
 }
 
 
   
-export default function Appart() {
+export default async function Appart() {
   const router = useRouter();
-  const [apartments] = React.useState<Apartment[]>([
+  const [apartments] = React.useState<Apartment[]>(await getAllElement());
+  /*const [apartments] = React.useState<Apartment[]>([
     {
       id: 1,
       name: "The Metropolitan",
@@ -58,7 +61,7 @@ export default function Appart() {
       internet: true,
       address: "789 Hill Road"
     }
-  ]);
+  ]);*/
 
   return (
     <div>
@@ -96,27 +99,27 @@ export default function Appart() {
                   <h2 className="text-xl font-semibold text-gray-900">{apt.name}</h2>
                   <div className="flex items-center text-green-600">
                     <DollarSign className="h-5 w-5" />
-                    <span className="text-lg font-bold">{apt.price}</span>
+                    <span className="text-lg font-bold">{apt.prix}</span>
                   </div>
                 </div>
 
                 <p className="text-gray-600 mb-4 flex items-center">
                   <Home className="h-4 w-4 mr-2" />
-                  {apt.address}
+                  {apt.adresse}
                 </p>
 
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   <div className="flex items-center text-gray-700">
                     <Bed className="h-5 w-5 mr-2" />
-                    <span>{apt.bedrooms} Beds</span>
+                    <span>{apt.chambres} Beds</span>
                   </div>
                   <div className="flex items-center text-gray-700">
                     <Bath className="h-5 w-5 mr-2" />
-                    <span>{apt.bathrooms} Baths</span>
+                    <span>{apt.sdb} Baths</span>
                   </div>
                   <div className="flex items-center text-gray-700">
                     <Ruler className="h-5 w-5 mr-2" />
-                    <span>{apt.sqft} sqft</span>
+                    <span>{apt.superficie} sqft</span>
                   </div>
                   <div className="flex items-center text-gray-700">
                     <Car className="h-5 w-5 mr-2" />

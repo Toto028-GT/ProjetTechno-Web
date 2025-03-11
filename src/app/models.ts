@@ -16,7 +16,7 @@ export async function getAllElement(){
         // @ts-ignore
         const list = await collection.find().toArray();
         //Renvoyer le tableau JSON à l'utilisateur
-        //console.log(list);
+        console.log(list);
         return list;
     } catch (error) {
         console.log(error);

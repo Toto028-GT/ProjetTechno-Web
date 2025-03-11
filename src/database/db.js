@@ -7,6 +7,7 @@ export const getCollections = async() => {
   try{
     await client.connect();
     const collection = client.db('logement').collection('logements');
+    console.log("fsfsf")
     return collection;
   }
   catch (error) {
