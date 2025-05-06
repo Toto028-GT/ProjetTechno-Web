@@ -42,9 +42,6 @@ export default function RootLayout({
       <div className="container ">
         {children}
       </div>
-      <div className="p-3 position-absolute bottom-0 end-0">
-        <a href="/" className="btn btn-primary btn-lg px-4 me-md-2">HOME</a>
-      </div>
     </main>
   </body>
 </html>

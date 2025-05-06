@@ -1,12 +1,7 @@
-'use client';
-
-import Image from "next/image";
-import { useRouter } from 'next/navigation';
 import { Building2, Map } from 'lucide-react';
+import { Bouton } from "./components/Bouton";
 
 export default function Home() {
-  const router = useRouter();
-
   return (
     <div className="min-h-screen  bg-[rgb(243,238,212)]">
     <div className="container mx-auto px-4 py-16">
@@ -14,23 +9,18 @@ export default function Home() {
         <h1 className="text-5xl font-bold mb-8 text-gray-900">Trouvez Votre Appartement Idéal</h1>
         <p className="text-xl mb-12 text-gray-900">Simplifiez votre recherche d'appartement avec notre plateforme intuitive</p>
         <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-          <button
-            onClick={() => router.push('/appart')}
-            className="bg-white text-purple-600 rounded-lg p-8 shadow-lg hover:shadow-xl transition-all group"
-          >
+          <Bouton destination="/allAppartement" style="bg-white text-purple-600 rounded-lg p-8 shadow-lg hover:shadow-xl transition-all group">
             <Building2 className="w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-transform" />
             <h2 className="text-2xl font-semibold mb-2">Liste des Appartements</h2>
             <p className="text-gray-600">Consultez tous vos appartements enregistrer</p>
-          </button>
-
-          <button
-            onClick={() => router.push('/map')}
-            className="bg-white text-purple-600 rounded-lg p-8 shadow-lg hover:shadow-xl transition-all group"
-          >
+          </Bouton>
+          
+          <Bouton destination="/map" style="bg-white text-purple-600 rounded-lg p-8 shadow-lg hover:shadow-xl transition-all group">
             <Map className="w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-transform" />
             <h2 className="text-2xl font-semibold mb-2">Carte Interactive</h2>
             <p className="text-gray-600">Visualisez les appartements sur la carte</p>
-          </button>
+          </Bouton>
+
         </div>
       </div>
 

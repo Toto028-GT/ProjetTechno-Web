@@ -44,7 +44,7 @@ db.logements.insertMany([
         id: 4,
         name: "Studio Panoramique",
         adresse: "5 Rue de la Tour, 75016 Paris",
-        image: "https://images.unsplash.com/photo-1521791131211-395d47237e98?auto=format&fit=crop&w=800",
+        image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800",
         prix: 1200,
         superficie: 35,
         chambres: 1,
