@@ -1,6 +1,6 @@
 "use server"
 import { Bouton } from "../components/Bouton";
-import { getAllElement } from "../models";
+import { getAllElement } from "../api/models";
 import { Building2, DollarSign, Bed, Bath, Ruler, Car, Wifi, Home } from 'lucide-react';
 
 interface Apartment {

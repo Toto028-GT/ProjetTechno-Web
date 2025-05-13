@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import { getCollections } from "../database/db.ts";
+import { getCollections } from "./db.ts";
 
 
 export async function getAllElement(){

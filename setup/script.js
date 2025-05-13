@@ -12,7 +12,10 @@ db.logements.insertMany([
         sdb: 1,
         parking: true,
         internet: true,
-        type: "Appartement"
+        type: "Appartement",
+        location: {
+          lat: 48.8566, lng: 2.3522 
+        }
       },
       {
         id: 2,
@@ -25,7 +28,10 @@ db.logements.insertMany([
         sdb: 2,
         parking: true,
         internet: true,
-        type: "Loft"
+        type: "Loft",
+        location: {
+          lat: 48.8656, lng: 2.3212
+        }
       },
       {
         id: 3,
@@ -38,7 +44,10 @@ db.logements.insertMany([
         sdb: 1,
         parking: false,
         internet: true,
-        type: "Appartement"
+        type: "Appartement",
+        location: {
+          lat: 48.8738, lng: 2.2950
+        }
       },
       {
         id: 4,
@@ -51,7 +60,10 @@ db.logements.insertMany([
         sdb: 1,
         parking: false,
         internet: true,
-        type: "Studio"
+        type: "Studio",
+        location: {
+          lat: 48.8485, lng: 2.3670 
+        }
       },
       {
         id: 5,
@@ -64,7 +76,10 @@ db.logements.insertMany([
         sdb: 1,
         parking: true,
         internet: true,
-        type: "Appartement"
+        type: "Appartement",
+        location: {
+          lat: 48.8529, lng: 2.3499 
+        }
       },
       {
         id: 6,
@@ -77,7 +92,10 @@ db.logements.insertMany([
         sdb: 2,
         parking: true,
         internet: true,
-        type: "Penthouse"
+        type: "Penthouse",
+        location: {
+          lat: 48.8590, lng: 2.3769 
+        }
       },
       {
         id: 7,
@@ -90,7 +108,10 @@ db.logements.insertMany([
         sdb: 1,
         parking: true,
         internet: true,
-        type: "Appartement"
+        type: "Appartement",
+        location: {
+          lat: 48.8566, lng: 2.3522 
+        }
       },
       {
         id: 8,
@@ -103,7 +124,10 @@ db.logements.insertMany([
         sdb: 1,
         parking: false,
         internet: true,
-        type: "Appartement"
+        type: "Appartement",
+        location: {
+          lat: 48.8384, lng: 2.3230 
+        }
       },
       {
         id: 9,
@@ -116,7 +140,10 @@ db.logements.insertMany([
         sdb: 2,
         parking: true,
         internet: true,
-        type: "Loft"
+        type: "Loft",
+        location: {
+          lat: 48.8635, lng: 2.3522 
+        }
       },
       {
         id: 10,
@@ -129,7 +156,10 @@ db.logements.insertMany([
         sdb: 1,
         parking: false,
         internet: true,
-        type: "Appartement"
+        type: "Appartement",
+        location: {
+          lat: 48.8352, lng: 2.3788 
+        }
       },
       {
         id: 11,
@@ -142,7 +172,10 @@ db.logements.insertMany([
         sdb: 2,
         parking: true,
         internet: true,
-        type: "Appartement"
+        type: "Appartement",
+        location: {
+          lat: Number, lng: Number 
+        }
       },
       {
         id: 12,
@@ -155,7 +188,10 @@ db.logements.insertMany([
         sdb: 1,
         parking: false,
         internet: true,
-        type: "Studio"
+        type: "Studio",
+        location: {
+          lat: Number, lng: Number 
+        }
       },
       {
         id: 13,
@@ -168,7 +204,10 @@ db.logements.insertMany([
         sdb: 1,
         parking: false,
         internet: true,
-        type: "Appartement"
+        type: "Appartement",
+        location: {
+          lat: Number, lng: Number 
+        }
       },
       {
         id: 14,
@@ -181,7 +220,10 @@ db.logements.insertMany([
         sdb: 2,
         parking: true,
         internet: true,
-        type: "Appartement"
+        type: "Appartement",
+        location: {
+          lat: Number, lng: Number 
+        }
       }
 ]);
 
