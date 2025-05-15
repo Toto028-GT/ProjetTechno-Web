@@ -6,9 +6,9 @@ export async function getAllElement(){
     try {
         const collection = await getCollections();
         // @ts-ignore
-        const list = await collection.find().toArray();
-        //Renvoyer le tableau JSON à l'utilisateur
-        //console.log(list);
+        const user = await collection.findOne({ pseudo: "test" },{ projection: { _id: 0, logements: 1 } });
+
+        const list = user?.logements || [];
         return list;
     } catch (error) {
         console.log(error);
