@@ -103,3 +103,8 @@ export async function createNewUser(email: any,password: any, nom: any, prenom: 
         console.log(error);
     }
 }
+
+export async function getAppartByID(id : any, user : any) {
+    const list = await getAllAppartFromEmail(user);
+    return list[id-1];
+}

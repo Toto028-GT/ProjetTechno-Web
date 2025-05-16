@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Building2, DollarSign, Bed, Bath, Ruler, Car, Wifi, Home } from 'lucide-react';
 import { ArrowLeft } from 'lucide-react';
-import {getAllElement} from '../api/models.ts'
 import CardApparts from "./cardApparts.tsx";
 import { Bouton } from "../components/Bouton.tsx";
 
