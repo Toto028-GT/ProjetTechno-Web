@@ -3,7 +3,6 @@ import Credentials from 'next-auth/providers/credentials';
 import { authConfig } from './auth.config';
 import { z } from 'zod';
 import { getUserByID } from '@/app/api/models.ts'
-import bcrypt from 'bcryptjs';
 
 type User = {
     _id: string;
@@ -39,11 +38,8 @@ export const { auth, signIn, signOut } = NextAuth({
                     const { email, password } = parsedCredentials.data;
                     const user = await getUser(email);
                     if (!user) return null;
-                    const passwordsMatch = await bcrypt.compare(password, user.mdp);
-
-                    if (passwordsMatch) return user;
+                    if (password === user.mdp) return user;
                 }
-
                 return null;
             },
         }),
