@@ -9,14 +9,13 @@ export async function getAllElement(){
         const user = await collection.findOne({ pseudo: "test" },{ projection: { _id: 0, logements: 1 } });
 
         const list = user?.logements || [];
+        console.log(list);
         return list;
     } catch (error) {
         console.log(error);
         return []
     }
 }
-
-
 
 export async function getElementById(id: any){
     try {
@@ -75,6 +74,24 @@ export async function updateElement(id: any,change: any){
         return ({
             message: 'Logement changer avec succès'
           });
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export async function getUserByID(id: any){
+    try {
+        const collection = await getCollections();
+        let element;
+        // @ts-ignore
+        element = await collection.findOne({"email": id},{projection: { logements: 0 } });
+        if(element == null){
+            // @ts-ignore
+            element = await collection.findOne({"pseudo": id},{projection: { logements: 0 } });
+        }
+        //Renvoyer le tableau JSON à l'utilisateur
+        console.log(element);
+        return element;
     } catch (error) {
         console.log(error);
     }

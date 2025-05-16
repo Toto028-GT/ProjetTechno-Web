@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { MongoClient } from 'mongodb';
+import { getCollections } from "../db.ts";
 
 
 export async function POST (req: NextApiRequest) {
