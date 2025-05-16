@@ -2,14 +2,14 @@
  
 import { Bouton } from '@/app/components/Bouton.tsx';
 import { useActionState } from 'react';
-import { authenticate } from '@/app/lib/actions';
+import { register } from '@/app/lib/actions';
 import { useSearchParams } from 'next/navigation';
  
 export default function SignUpForm() {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get('callbackUrl') || '/';
   const [errorMessage, formAction, isPending] = useActionState(
-    authenticate,
+    register,
     undefined,
   );
  
