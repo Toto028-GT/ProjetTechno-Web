@@ -30,9 +30,9 @@ export default function SignUpForm() {
             <div className="relative">
               <input
                 className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-                id="name"
+                id="prenom"
                 type="name"
-                name="name"
+                name="prenom"
                 placeholder="Enter your name"
                 required
               />
@@ -49,9 +49,9 @@ export default function SignUpForm() {
             <div className="relative">
               <input
                 className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-                id="name"
+                id="nom"
                 type="name"
-                name="name"
+                name="nom"
                 placeholder="Enter your name"
                 required
               />

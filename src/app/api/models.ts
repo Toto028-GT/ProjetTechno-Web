@@ -84,12 +84,21 @@ export async function getUserByID(id: any){
         let element;
         // @ts-ignore
         element = await collection.findOne({"email": id},{projection: { logements: 0 } });
-        if(element == null){
-            // @ts-ignore
-            element = await collection.findOne({"pseudo": id},{projection: { logements: 0 } });
-        }
         //Renvoyer le tableau JSON à l'utilisateur
         return element;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export async function createNewUser(email: any,password: any, nom: any, prenom: any){
+    try {
+        const collection = await getCollections();
+        let element;
+        // @ts-ignore
+        element = await collection?.insertOne({"email": email, "mdp": password, "nom": nom, "prenom": prenom, "logements": []});
+        //Renvoyer le tableau JSON à l'utilisateur
+        return element?.insertedId;
     } catch (error) {
         console.log(error);
     }
