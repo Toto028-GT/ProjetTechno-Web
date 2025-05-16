@@ -2,14 +2,13 @@ import { ObjectId } from "mongodb";
 import { getCollections } from "./db.ts";
 
 
-export async function getAllElement(){
+export async function getAllAppartFromEmail(email : any){
     try {
         const collection = await getCollections();
         // @ts-ignore
-        const user = await collection.findOne({ pseudo: "test" },{ projection: { _id: 0, logements: 1 } });
+        const user = await collection.findOne({ email: email },{ projection: { _id: 0, logements: 1 } });
 
         const list = user?.logements || [];
-        console.log(list);
         return list;
     } catch (error) {
         console.log(error);
@@ -21,7 +20,7 @@ export async function getElementById(id: any){
     try {
         const collection = await getCollections();
         // @ts-ignore
-        const element = await collection.findOne({"_id": id});
+        const element = await collection.findOne({"_id": id });
         //Renvoyer le tableau JSON à l'utilisateur
         //console.log(list);
         return element;
@@ -90,7 +89,6 @@ export async function getUserByID(id: any){
             element = await collection.findOne({"pseudo": id},{projection: { logements: 0 } });
         }
         //Renvoyer le tableau JSON à l'utilisateur
-        console.log(element);
         return element;
     } catch (error) {
         console.log(error);

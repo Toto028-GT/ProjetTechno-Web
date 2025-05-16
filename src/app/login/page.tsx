@@ -1,5 +1,6 @@
 import LoginForm from '@/app/ui/login-form';
 import { Suspense } from 'react';
+import SideNav from '@/app/login/sidenav';
  
 export default function LoginPage() {
   return (

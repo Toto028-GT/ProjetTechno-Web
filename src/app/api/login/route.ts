@@ -10,7 +10,6 @@ export async function POST (req: NextApiRequest) {
     const mongoUrl = 'mongodb://localhost:27017';
     const client = new MongoClient(mongoUrl);
     const user = await client.db('logement').collection('users').findOne({ email });
-    console.log(user);
 
     if (!user) {
       return Response.json({ error: 'Utilisateur non trouvé' }, { status: 404 })

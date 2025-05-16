@@ -3,6 +3,7 @@ import Credentials from 'next-auth/providers/credentials';
 import { authConfig } from './auth.config';
 import { z } from 'zod';
 import { getUserByID } from '@/app/api/models.ts'
+import { CopyMinus } from 'lucide-react';
 
 type User = {
     _id: string;
@@ -44,4 +45,18 @@ export const { auth, signIn, signOut } = NextAuth({
             },
         }),
     ],
+    callbacks: {
+        async jwt({ token, user }) {
+            if (user) {
+                token.id = user.id; // Store MongoDB _id in JWT
+            }
+            return token;
+        },
+        async session({ session, token }) {
+            if (token?.id && session.user) {
+                (session.user as { id?: string }).id = token.id as string; // Make _id available in session
+            }
+            return session;
+        },
+    },
 });

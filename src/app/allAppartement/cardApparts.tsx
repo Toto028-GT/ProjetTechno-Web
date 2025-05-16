@@ -1,7 +1,8 @@
 "use server"
 import { Bouton } from "../components/Bouton";
-import { getAllElement } from "../api/models";
+import { getAllAppartFromEmail } from "../api/models";
 import { Building2, DollarSign, Bed, Bath, Ruler, Car, Wifi, Home } from 'lucide-react';
+import { auth } from "../auth"
 
 interface Apartment {
   id: number,
@@ -18,8 +19,9 @@ interface Apartment {
 }
 
 export default async function cardApparts() {
-  const apartments = await getAllElement();
-  
+
+  const session = await auth();
+  const apartments = await getAllAppartFromEmail(session?.user?.email);
 
   return (
     <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
