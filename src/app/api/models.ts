@@ -124,3 +124,19 @@ export async function updateVisiteStatus(email: string | null | undefined, appar
   console.log(`Appartement ${appartId} status mis à jour en : ${newStatus}`);
   return result;
 }
+
+export async function updateVisiteDate(email: string | null | undefined, appartId: number, newDate: any) {
+  const collection = await getCollections();
+  const result = await collection?.updateOne(
+    { 
+      //@ts-ignore
+      email: email,           // filtre utilisateur
+      "logements.id": appartId // logement dans le tableau
+    },
+    {
+      $set: { "logements.$.dateVisite": newDate }
+    }
+  );
+  console.log(`Appartement ${appartId} date mis à jour en : ${newDate}`);
+  return result;
+}
