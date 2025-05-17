@@ -255,14 +255,14 @@ export default async function InsertApp() {
               className="mb-3 mt-5 block text-xs font-medium text-gray-900"
               htmlFor="dateVisite"
             >
-              Date de visite
+              Note
             </label>
             <input
               className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
               id="note"
               name="note"
               type="text"
-              placeholder=""
+              required
             />
           </div>
         </div>
