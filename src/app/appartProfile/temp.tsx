@@ -16,22 +16,19 @@ import { Bouton } from "../components/Bouton";
 import { auth } from "../auth";
 import { getAppartByID } from "@/app/api/models";
 import Link from "next/link";
+import { AppartImage } from "@/app/components/appartImage.tsx";
+import EditableDate from "../components/EditableDate";
 
 export default async function AppartInfo({ id }: { id: string }) {
   const session = await auth();
   const appart = await getAppartByID(id, session?.user?.email);
-  
 
   return (
     <div className="min-h-screen bg-gray-100 py-10 px-4 flex justify-center items-start">
       <div className="w-full max-w-5xl bg-white rounded-2xl shadow-lg overflow-hidden">
         {/* Image en haut */}
         <div className="w-full h-64 bg-gray-200">
-          <img
-            src={appart.image}
-            alt={appart.name}
-            className="w-full h-full object-cover"
-          />
+          <AppartImage src={appart.image} alt={appart.name} />
         </div>
 
         <div className="p-8">
@@ -48,6 +45,20 @@ export default async function AppartInfo({ id }: { id: string }) {
               </p>
             </div>
           </div>
+
+        {/* Section pour ajouter des notes */}
+        <div className="mt-10">
+          <h2 className="text-xl font-semibold mb-3">Ajouter des notes</h2>
+          <textarea
+            className="w-full h-32 p-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Exemple : J'aime bien la salle de bain mais il fait un peu sombre..."
+          />
+          <button
+            className="mt-4 mb-8 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition"
+          >
+            Enregistrer
+          </button>
+        </div>
 
           {/* Détails principaux */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6 text-gray-700">
@@ -90,7 +101,7 @@ export default async function AppartInfo({ id }: { id: string }) {
             </div>
             <div className="flex items-center space-x-2">
               <Calendar className="w-5 h-5" />
-              <span>Visite : {new Date(appart.dateVisite).toLocaleDateString()}</span>
+              <EditableDate initialDate={appart.dateVisite} />
             </div>
           </div>
 
