@@ -23,7 +23,8 @@ db.users.insertMany([
         type: "Appartement",
         location: { lat: 48.8566, lng: 2.3522 },
         status: "visiter",
-        dateVisite: "2025-01-20"
+        dateVisite: "2025-01-20",
+        note: ""
       },
       {
         id: 2,
@@ -39,7 +40,8 @@ db.users.insertMany([
         type: "Loft",
         location: { lat: 48.8656, lng: 2.3212 },
         status: "non visiter",
-        dateVisite: "2025-03-18"
+        dateVisite: "2025-03-18",
+        note: ""
       },
       {
         id: 3,
@@ -55,7 +57,8 @@ db.users.insertMany([
         type: "Appartement",
         location: { lat: 48.8738, lng: 2.2950 },
         status: "non visiter",
-        dateVisite: "2025-01-20"
+        dateVisite: "2025-01-20",
+        note: ""
       },
       {
         id: 4,
@@ -71,7 +74,8 @@ db.users.insertMany([
         type: "Studio",
         location: { lat: 48.8485, lng: 2.3670 },
         status: "non visiter",
-        dateVisite: "2025-03-18"
+        dateVisite: "2025-03-18",
+        note: ""
       },
       {
         id: 5,
@@ -87,7 +91,8 @@ db.users.insertMany([
         type: "Appartement",
         location: {lat: 48.8529, lng: 2.3499 },
         status: "visiter",
-        dateVisite: "2025-01-20"
+        dateVisite: "2025-01-20",
+        note: ""
       },
       {
         id: 6,
@@ -103,7 +108,8 @@ db.users.insertMany([
         type: "Penthouse",
         location: { lat: 48.8590, lng: 2.3769 },
         status: "non visiter",
-        dateVisite: "2025-03-18"
+        dateVisite: "2025-03-18",
+        note: ""
       },
       {
         id: 7,
@@ -119,7 +125,8 @@ db.users.insertMany([
         type: "Appartement",
         location: { lat: 48.8566, lng: 2.3522 },
         status: "non visiter",
-        dateVisite: "2025-01-20"
+        dateVisite: "2025-01-20",
+        note: ""
       },
       {
         id: 8,
@@ -135,7 +142,8 @@ db.users.insertMany([
         type: "Appartement",
         location: { lat: 48.8384, lng: 2.3230 },
         status: "non visiter",
-        dateVisite: "2025-03-18"
+        dateVisite: "2025-03-18",
+        note: ""
       },
       {
         id: 9,
@@ -151,7 +159,8 @@ db.users.insertMany([
         type: "Loft",
         location: { lat: 48.8635, lng: 2.3522 },
         status: "visiter",
-        dateVisite: "2025-01-20"
+        dateVisite: "2025-01-20",
+        note: ""
       },
       {
         id: 10,
@@ -167,7 +176,8 @@ db.users.insertMany([
         type: "Appartement",
         location: { lat: 48.8352, lng: 2.3788 },
         status: "non visiter",
-        dateVisite: "2025-03-18"
+        dateVisite: "2025-03-18",
+        note: ""
       },
       {
         id: 11,
@@ -183,7 +193,8 @@ db.users.insertMany([
         type: "Appartement",
         location: { lat: 48.8495, lng: 2.3532 },
         status: "non visiter",
-        dateVisite: "2025-01-20"
+        dateVisite: "2025-01-20",
+        note: ""
       },
       {
         id: 12,
@@ -199,7 +210,8 @@ db.users.insertMany([
         type: "Studio",
         location: { lat: 48.8498, lng: 2.3741 },
         status: "non visiter",
-        dateVisite: "2025-03-18"
+        dateVisite: "2025-03-18",
+        note: ""
       }
     ]
   },
@@ -225,7 +237,8 @@ db.users.insertMany([
         type: "Appartement",
         location: { lat: 48.8383, lng: 2.3845 },
         status: "visiter",
-        dateVisite: "2025-01-20"
+        dateVisite: "2025-01-20",
+        note: ""
       },
       {
         id: 13,
@@ -241,7 +254,8 @@ db.users.insertMany([
         type: "Appartement",
         location: { lat: 48.8607, lng: 2.3429 },
         status: "non visiter",
-        dateVisite: "2025-03-18"
+        dateVisite: "2025-03-18",
+        note: ""
       }
     ]
   }

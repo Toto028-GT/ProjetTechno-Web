@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { auth } from "@/app/auth";
-import { getAllAppartFromEmail, updateVisiteStatus } from '@/app/api/models'; // ta fonction serveur qui modifie la BDD
+import { updateVisiteStatus } from '@/app/api/models'; // ta fonction serveur qui modifie la BDD
 
 export async function POST(request: Request) {
   const { status, appartId } = await request.json();

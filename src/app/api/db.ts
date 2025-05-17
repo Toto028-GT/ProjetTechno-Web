@@ -18,6 +18,7 @@ interface Logement {
   location: [number, number];
   status: string;
   dateVisite: string;
+  note: string;
 }
 
 interface User {
@@ -35,7 +36,6 @@ export const getCollections = async() => {
   try{
     await client.connect();
     const collection = client.db('logement').collection<User>('users');
-    //console.log("fsfsf")
     return collection;
   }
   catch (error) {

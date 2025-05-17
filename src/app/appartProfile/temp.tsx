@@ -18,7 +18,7 @@ import { getAppartByID } from "@/app/api/models";
 import Link from "next/link";
 import { AppartImage } from "@/app/components/AppartImage";
 import EditableDate from "../components/EditableDate";
-import { Notes } from "@/app/components/AddNotes";
+import Notes from "@/app/components/AddNotes" ;
 import { VisiteStatus } from "@/app/components/VisiteStatuts";
 
 export default async function AppartInfo({ id }: { id: string }) {
@@ -50,7 +50,10 @@ export default async function AppartInfo({ id }: { id: string }) {
           </div>
 
           {/* Section ajout notes via composant client */}
-          <Notes />
+          <Notes 
+              initialNote={appart.note}
+              appartId={appart.id} 
+          />
 
           {/* Détails principaux */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6 text-gray-700">

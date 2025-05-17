@@ -140,3 +140,19 @@ export async function updateVisiteDate(email: string | null | undefined, appartI
   console.log(`Appartement ${appartId} date mis à jour en : ${newDate}`);
   return result;
 }
+
+export async function updateNote(email: string | null | undefined, appartId: number, newNote : any) {
+  const collection = await getCollections();
+  const result = await collection?.updateOne(
+    { 
+      //@ts-ignore
+      email: email,           // filtre utilisateur
+      "logements.id": appartId // logement dans le tableau
+    },
+    {
+      $set: { "logements.$.note": newNote }
+    }
+  );
+  console.log(`Appartement ${appartId} date mis à jour en : ${newNote}`);
+  return result;
+}

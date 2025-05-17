@@ -32,7 +32,7 @@ export default function EditableDate({ initialDate, appartId }: { initialDate: s
       <span className="text-gray-700 font-medium">Dernière visite :</span>
       <input
         type="date"
-        value={selectedDate.slice(0, 10)} // pour assurer le format date ISO
+        value={selectedDate.slice(0, 10)} 
         onChange={handleChange}
         className="border border-gray-300 rounded-md px-2 py-1"
       />
