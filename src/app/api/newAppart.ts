@@ -16,7 +16,8 @@ export async function newAppart(mail:string,credentials: any) {
     credentials.get("lat"), 
     credentials.get("lng"), 
     credentials.get("status"),
-    credentials.get("dateVisite")
+    credentials.get("dateVisite"),
+    credentials.get("note")
     );
     
     return null;

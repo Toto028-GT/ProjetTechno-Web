@@ -172,7 +172,8 @@ export async function insertAppart(
   lat: number, 
   lng: number,
   status: string,
-  dateVisite: string
+  dateVisite: string,
+  note: string
 ) {
   const collection = await getCollections();
   const id = await getAllAppartFromEmail(email).then((list) => list.length + 1);
@@ -190,7 +191,8 @@ export async function insertAppart(
     type,
     location: [lat, lng] as [number, number],
     status,
-    dateVisite
+    dateVisite,
+    note
   };
   const result = await collection?.updateOne(
     { email: email },
