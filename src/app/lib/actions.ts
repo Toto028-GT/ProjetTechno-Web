@@ -4,6 +4,7 @@ import { signIn } from '@/app/auth';
 import { AuthError } from 'next-auth';
 import { newAccount } from '@/app/api/signUpBDD';
 import { newAppart } from '../api/newAppart';
+import { auth } from "../auth"
 // ...
  
 export async function authenticate(
@@ -48,10 +49,15 @@ export async function register(
 export async function ajoutAppart(
   prevState: string | undefined,
   formData: FormData,
-  mail:any,
 ) {
   try {
-    await newAppart(mail,formData);
+  const session = await auth();
+  if (!session?.user) {
+    return 'You must be logged in to add an apartment.'; 
+  }
+  else {
+    await newAppart(session.user.email,formData);
+  }
   } catch (error) {
     return 'Something went wrong.';
     }

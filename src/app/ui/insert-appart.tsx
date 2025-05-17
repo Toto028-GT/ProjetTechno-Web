@@ -4,16 +4,12 @@ import { Bouton } from '@/app/components/Bouton.tsx';
 import { useActionState } from 'react';
 import { ajoutAppart } from '@/app/lib/actions';
 import { useSearchParams } from 'next/navigation';
-import { auth } from "../auth"
  
 export default async function InsertApp() {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get('callbackUrl') || '/';
-  const session = await auth();
   const [errorMessage, formAction, isPending] = useActionState(
-    async (prevState: string | undefined, formData: FormData) => {
-      return await ajoutAppart(prevState, formData, session?.user?.email);
-    },
+    ajoutAppart,
     undefined,
   );
  

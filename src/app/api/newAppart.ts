@@ -1,6 +1,6 @@
 import { insertAppart,getUserByID } from '@/app/api/models';
 
-export async function newAppart(mail:string,credentials: any) {
+export async function newAppart(mail:string | null | undefined,credentials: any) {
     await insertAppart(
     mail,
     credentials.get("name"), 
