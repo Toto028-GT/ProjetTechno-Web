@@ -25,13 +25,14 @@ export default async function AppartInfo({ id }: { id: string }) {
 
   return (
     <div className="min-h-screen bg-gray-100 py-10 px-4 flex justify-center items-start">
-      <div className="w-full max-w-5xl bg-white rounded-2xl shadow-lg overflow-hidden">
+      <div className="w-full max-w-5xl bg-white rounded-2xl shadow-lg overflow-hidden relative">
         {/* Image en haut */}
         <div className="w-full h-64 bg-gray-200">
           <AppartImage src={appart.image} alt={appart.name} />
         </div>
 
         <div className="p-8">
+
           {/* Titre + retour */}
           <div className="flex justify-between items-start mb-6">
             <div>
@@ -46,19 +47,19 @@ export default async function AppartInfo({ id }: { id: string }) {
             </div>
           </div>
 
-        {/* Section pour ajouter des notes */}
-        <div className="mt-10">
-          <h2 className="text-xl font-semibold mb-3">Ajouter des notes</h2>
-          <textarea
-            className="w-full h-32 p-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Exemple : J'aime bien la salle de bain mais il fait un peu sombre..."
-          />
-          <button
-            className="mt-4 mb-8 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition"
-          >
-            Enregistrer
-          </button>
-        </div>
+          {/* Section pour ajouter des notes */}
+          <div className="mt-10">
+            <h2 className="text-xl font-semibold mb-3">Ajouter des notes</h2>
+            <textarea
+              className="w-full h-32 p-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Exemple : J'aime bien la salle de bain mais il fait un peu sombre..."
+            />
+            <button
+              className="mt-4 mb-8 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition"
+            >
+              Enregistrer
+            </button>
+          </div>
 
           {/* Détails principaux */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6 text-gray-700">
@@ -113,6 +114,15 @@ export default async function AppartInfo({ id }: { id: string }) {
             </p>
             {/* Tu peux insérer une carte ici si tu utilises Leaflet, Mapbox ou autre */}
           </div>
+        </div>
+
+        {/* Bouton Supprimer en bas à droite */}
+        <div className="absolute bottom-4 right-4">
+          <button
+            className="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2 rounded-md shadow"
+          >
+            Supprimer
+          </button>
         </div>
       </div>
     </div>
