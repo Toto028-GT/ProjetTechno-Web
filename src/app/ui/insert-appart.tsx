@@ -5,7 +5,7 @@ import { useActionState } from 'react';
 import { ajoutAppart } from '@/app/lib/actions';
 import { useSearchParams } from 'next/navigation';
  
-export default async function InsertApp() {
+export default function InsertApp() {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get('callbackUrl') || '/';
   const [errorMessage, formAction, isPending] = useActionState(
