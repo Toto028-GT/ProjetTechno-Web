@@ -1,18 +1,109 @@
-import { ArrowLeft, Building2 } from "lucide-react";
+import {
+  ArrowLeft,
+  Building2,
+  MapPin,
+  Ruler,
+  Bed,
+  Bath,
+  Wifi,
+  Car,
+  BadgeEuro,
+  Calendar,
+  Info
+} from "lucide-react";
 import * as React from "react";
 import { Bouton } from "../components/Bouton";
-import { auth } from "../auth"
-import {getAppartByID} from "@/app/api/models"
+import { auth } from "../auth";
+import { getAppartByID } from "@/app/api/models";
+import Link from "next/link";
 
-
-export default async function AppartInfo({id} : {id:string}) {
+export default async function AppartInfo({ id }: { id: string }) {
   const session = await auth();
   const appart = await getAppartByID(id, session?.user?.email);
   
-  return(
-    <div>
-      <p>{appart.name}</p>
+
+  return (
+    <div className="min-h-screen bg-gray-100 py-10 px-4 flex justify-center items-start">
+      <div className="w-full max-w-5xl bg-white rounded-2xl shadow-lg overflow-hidden">
+        {/* Image en haut */}
+        <div className="w-full h-64 bg-gray-200">
+          <img
+            src={appart.image}
+            alt={appart.name}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        <div className="p-8">
+          {/* Titre + retour */}
+          <div className="flex justify-between items-start mb-6">
+            <div>
+              <h1 className="text-3xl font-bold flex items-center space-x-2">
+                <Building2 className="w-6 h-6 text-blue-500" />
+                <span>{appart.name}</span>
+              </h1>
+              <p className="text-gray-600 flex items-center mt-2">
+                <MapPin className="w-4 h-4 mr-1" />
+                {appart.adresse}
+              </p>
+            </div>
+          </div>
+
+          {/* Détails principaux */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6 text-gray-700">
+            <div className="flex items-center space-x-2">
+              <BadgeEuro className="w-5 h-5" />
+              <span>{appart.prix} € / mois</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Ruler className="w-5 h-5" />
+              <span>{appart.superficie} m²</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Bed className="w-5 h-5" />
+              <span>{appart.chambres} chambre(s)</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Bath className="w-5 h-5" />
+              <span>{appart.sdb} salle(s) de bain</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Car className="w-5 h-5" />
+              <span>{appart.parking ? "Parking disponible" : "Pas de parking"}</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Wifi className="w-5 h-5" />
+              <span>{appart.internet ? "Internet inclus" : "Pas d'internet"}</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Info className="w-5 h-5" />
+              <span>Type : {appart.type}</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Info className="w-5 h-5" />
+                <select
+                  className="border border-gray-300 rounded-md px-2 py-1"
+                >
+                  <option value="Visité">Visité</option>
+                  <option value="Non visité">Non visité</option>
+                </select>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Calendar className="w-5 h-5" />
+              <span>Visite : {new Date(appart.dateVisite).toLocaleDateString()}</span>
+            </div>
+          </div>
+
+          {/* Carte ou coordonnées géo */}
+          <div className="mb-6">
+            <h2 className="text-lg font-semibold mb-2">Localisation</h2>
+            <p className="text-gray-600">
+              Coordonnées : [{appart.location[0]}, {appart.location[1]}]
+            </p>
+            {/* Tu peux insérer une carte ici si tu utilises Leaflet, Mapbox ou autre */}
+          </div>
+        </div>
+      </div>
     </div>
   );
-
 }
