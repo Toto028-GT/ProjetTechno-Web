@@ -91,7 +91,10 @@ export default async function AppartInfo({ id }: { id: string }) {
             </div>
             <div className="flex items-center space-x-2">
               <Calendar className="w-5 h-5" />
-              <EditableDate initialDate={appart.dateVisite} />
+              <EditableDate 
+                initialDate={appart.dateVisite} 
+                appartId={appart.id} 
+              />
             </div>
           </div>
 
