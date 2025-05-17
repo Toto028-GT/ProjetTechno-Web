@@ -155,6 +155,8 @@ export async function updateNote(email: string | null | undefined, appartId: num
     }
   );
   console.log(`Appartement ${appartId} date mis à jour en : ${newNote}`);
+}
+
 export async function insertAppart(
   email: string,
   name: string,
