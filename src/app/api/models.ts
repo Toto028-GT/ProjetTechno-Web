@@ -1,5 +1,6 @@
 import { ObjectId } from "mongodb";
 import { getCollections } from "./db.ts";
+import { get } from "http";
 
 
 export async function getAllAppartFromEmail(email : any){
@@ -154,5 +155,44 @@ export async function updateNote(email: string | null | undefined, appartId: num
     }
   );
   console.log(`Appartement ${appartId} date mis à jour en : ${newNote}`);
+export async function insertAppart(
+  email: string,
+  name: string,
+  adresse: string,
+  image: string,
+  prix: number,
+  superficie: number,
+  chambres: number,
+  sdb: number,
+  parking: boolean,
+  internet: boolean,
+  type: string,
+  lat: number, 
+  lng: number,
+  status: string,
+  dateVisite: string
+) {
+  const collection = await getCollections();
+  const id = await getAllAppartFromEmail(email).then((list) => list.length + 1);
+  const newAppart = {
+    id,
+    name,
+    adresse,
+    image,
+    prix,
+    superficie,
+    chambres,
+    sdb,
+    parking,
+    internet,
+    type,
+    location: [lat, lng] as [number, number],
+    status,
+    dateVisite
+  };
+  const result = await collection?.updateOne(
+    { email: email },
+    { $push: { logements: newAppart } }
+  );
   return result;
 }
