@@ -16,8 +16,9 @@ import { Bouton } from "../components/Bouton";
 import { auth } from "../auth";
 import { getAppartByID } from "@/app/api/models";
 import Link from "next/link";
-import { AppartImage } from "@/app/components/appartImage.tsx";
+import { AppartImage } from "@/app/components/AppartImage";
 import EditableDate from "../components/EditableDate";
+import { Notes } from "@/app/components/AddNotes";
 
 export default async function AppartInfo({ id }: { id: string }) {
   const session = await auth();
@@ -47,19 +48,8 @@ export default async function AppartInfo({ id }: { id: string }) {
             </div>
           </div>
 
-          {/* Section pour ajouter des notes */}
-          <div className="mt-10">
-            <h2 className="text-xl font-semibold mb-3">Ajouter des notes</h2>
-            <textarea
-              className="w-full h-32 p-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Exemple : J'aime bien la salle de bain mais il fait un peu sombre..."
-            />
-            <button
-              className="mt-4 mb-8 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition"
-            >
-              Enregistrer
-            </button>
-          </div>
+          {/* Section ajout notes via composant client */}
+          <Notes />
 
           {/* Détails principaux */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6 text-gray-700">
