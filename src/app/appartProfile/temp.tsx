@@ -19,6 +19,7 @@ import Link from "next/link";
 import { AppartImage } from "@/app/components/AppartImage";
 import EditableDate from "../components/EditableDate";
 import { Notes } from "@/app/components/AddNotes";
+import { VisiteStatus } from "@/app/components/VisiteStatuts";
 
 export default async function AppartInfo({ id }: { id: string }) {
   const session = await auth();
@@ -83,12 +84,10 @@ export default async function AppartInfo({ id }: { id: string }) {
             </div>
             <div className="flex items-center space-x-2">
               <Info className="w-5 h-5" />
-                <select
-                  className="border border-gray-300 rounded-md px-2 py-1"
-                >
-                  <option value="Visité">Visité</option>
-                  <option value="Non visité">Non visité</option>
-                </select>
+              <VisiteStatus 
+                initialStatus={appart.status === "non visiter" ? "non visiter" : "visiter"} 
+                appartId={appart.id} 
+              />
             </div>
             <div className="flex items-center space-x-2">
               <Calendar className="w-5 h-5" />

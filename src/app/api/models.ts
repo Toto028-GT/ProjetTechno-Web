@@ -108,3 +108,19 @@ export async function getAppartByID(id : any, user : any) {
     const list = await getAllAppartFromEmail(user);
     return list[id-1];
 }
+
+export async function updateVisiteStatus(email: string | null | undefined, appartId: number, newStatus: "visiter" | "non visiter") {
+  const collection = await getCollections();
+  const result = await collection?.updateOne(
+    { 
+      //@ts-ignore
+      email: email,           // filtre utilisateur
+      "logements.id": appartId // logement dans le tableau
+    },
+    {
+      $set: { "logements.$.status": newStatus }
+    }
+  );
+  console.log(`Appartement ${appartId} status mis à jour en : ${newStatus}`);
+  return result;
+}
