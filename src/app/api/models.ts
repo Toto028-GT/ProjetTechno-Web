@@ -157,6 +157,24 @@ export async function updateNote(email: string | null | undefined, appartId: num
   console.log(`Appartement ${appartId} date mis à jour en : ${newNote}`);
 }
 
+export async function deleteAppart(email: string | null | undefined, appartId: number) {
+  const collection = await getCollections();
+
+  const result = await collection?.updateOne(
+    {
+      //@ts-ignore
+      email: email,             // filtre utilisateur
+    },
+    {
+      // suppression d’un élément du tableau "logements"
+      $pull: {
+        logements: { id: appartId }
+      }
+    }
+  );
+  console.log(`Appartement ${appartId} supprimé pour l'utilisateur ${email}`);
+}
+
 export async function insertAppart(
   email: string,
   name: string,

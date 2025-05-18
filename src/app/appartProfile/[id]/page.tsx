@@ -1,33 +1,24 @@
-
 import { Bouton } from "@/app/components/Bouton";
-import { ArrowLeft, Building2 } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import * as React from "react";
-import AppartInfo from "../temp.tsx"
+import AppartInfo from "../temp.tsx";
 
-export default async function appartProfile({ params }: { params: { id: string } }) {
-    const { id } = await params
-    return (
-        <div>
-            <div className="min-h-screen bg-gray-50">
-                <header className="bg-white shadow-sm">
-                    <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex items-center justify-between">
-                        <div className="flex items-center space-x-2">
-                            <Building2 className="h-6 w-6 text-indigo-600" />
-                            <h1 className="text-2xl font-bold text-gray-900">Tous vos Appartement</h1>
-                        </div>
-                    </div>
-                </header>
+export default async function AppartProfile({ params }: { params: { id: string } }) {
+  const { id } = await params;
+  return (
+    <div className="min-h-screen bg-gradient-to-tr from-purple-50 via-purple-100 to-purple-50">
+      <main className="max-w-7xl mx-auto px-12 py-10 sm:px-14 lg:px-24">
+        <Bouton
+          destination="/allAppartement"
+          style="inline-flex items-center text-purple-600 mb-8 font-semibold hover:text-purple-700"
+        >
+          <ArrowLeft className="w-5 h-5 mr-2" />
+          Retour
+        </Bouton>
 
-                <main className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
-                    <Bouton destination="/allAppartement" style="flex items-center text-purple-600 mb-8 hover:text-purple-700">
-                        <ArrowLeft className="w-5 h-5 mr-2" />
-                        Retour
-                    </Bouton>
-                <AppartInfo id = {id} />
-                </main>
-            </div>
-        </div>
-    );
+          <AppartInfo id={id} />
 
-
+      </main>
+    </div>
+  );
 }

@@ -20,13 +20,13 @@ import { AppartImage } from "@/app/components/AppartImage";
 import EditableDate from "../components/EditableDate";
 import Notes from "@/app/components/AddNotes" ;
 import { VisiteStatus } from "@/app/components/VisiteStatuts";
+import DeleteBouton from  "@/app/components/DeleteBouton";
 
 export default async function AppartInfo({ id }: { id: string }) {
   const session = await auth();
   const appart = await getAppartByID(id, session?.user?.email);
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10 px-4 flex justify-center items-start">
       <div className="w-full max-w-5xl bg-white rounded-2xl shadow-lg overflow-hidden relative">
         {/* Image en haut */}
         <div className="w-full h-64 bg-gray-200">
@@ -111,15 +111,7 @@ export default async function AppartInfo({ id }: { id: string }) {
           </div>
         </div>
 
-        {/* Bouton Supprimer en bas à droite */}
-        <div className="absolute bottom-4 right-4">
-          <button
-            className="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2 rounded-md shadow"
-          >
-            Supprimer
-          </button>
-        </div>
+        <DeleteBouton appartId={appart.id}/>
       </div>
-    </div>
   );
 }

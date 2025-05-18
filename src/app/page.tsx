@@ -1,12 +1,13 @@
 import { Building2, Map } from 'lucide-react';
 import { Bouton } from "./components/Bouton";
 import Link from 'next/link';
+import SideNav from './login/sidenav';
 
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-100 to-purple-50 relative">
-      
+      <SideNav/>
       <div className="absolute top-6 right-6 flex gap-4 z-50">
         <Link href="/signUp">
           <button className="bg-gradient-to-r from-purple-400 to-purple-600 text-white px-5 py-2 rounded-full shadow-md hover:shadow-lg hover:brightness-110 transition-all font-semibold">
@@ -38,7 +39,7 @@ export default function Home() {
             style="bg-white text-purple-700 rounded-2xl p-10 shadow-lg hover:shadow-2xl transition-all group"
           >
             <Building2 className="w-16 h-16 mx-auto mb-4 text-purple-500 group-hover:scale-110 transition-transform" />
-            <h2 className="text-2xl font-bold mb-2">Liste des Appartements</h2>
+            <h2 className="text-2xl font-bold mb-2">Liste des logements</h2>
             <p className="text-gray-600">Consultez tous les logements que vous avez enregistrés</p>
           </Bouton>
 
@@ -48,7 +49,7 @@ export default function Home() {
           >
             <Map className="w-16 h-16 mx-auto mb-4 text-purple-500 group-hover:scale-110 transition-transform" />
             <h2 className="text-2xl font-bold mb-2">Carte Interactive</h2>
-            <p className="text-gray-600">Visualisez facilement vos appartements sur une carte</p>
+            <p className="text-gray-600">Visualisez facilement vos logements sur une carte</p>
           </Bouton>
         </div>
 
