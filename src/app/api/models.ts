@@ -187,8 +187,8 @@ export async function insertAppart(
   parking: boolean,
   internet: boolean,
   type: string,
-  lat: number, 
-  lng: number,
+  lat: number|null, 
+  lng: number|null,
   status: string,
   dateVisite: string,
   note: string
@@ -214,6 +214,7 @@ export async function insertAppart(
   };
   const result = await collection?.updateOne(
     { email: email },
+    //@ts-ignore
     { $push: { logements: newAppart } }
   );
   return result;

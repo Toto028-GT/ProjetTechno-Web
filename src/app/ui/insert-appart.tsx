@@ -41,8 +41,8 @@ export default function InsertApp() {
             { id: "chambres", label: "Chambre(s)", type: "number" },
             { id: "sdb", label: "Salle(s) de bain", type: "number" },
             { id: "type", label: "Type", type: "text", placeholder: "T2, Studio..." },
-            { id: "lat", label: "Latitude", type: "number", step: "any" },
-            { id: "lng", label: "Longitude", type: "number", step: "any" },
+            //{ id: "lat", label: "Latitude", type: "number", step: "any" },
+            //{ id: "lng", label: "Longitude", type: "number", step: "any" },
             { id: "dateVisite", label: "Date de visite", type: "date" },
             { id: "note", label: "Note", type: "text", placeholder: "Ex : Proche du métro, très lumineux" },
           ].map((input) => (

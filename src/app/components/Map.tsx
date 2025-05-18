@@ -54,7 +54,7 @@ export default function Map({ logements, style }: { logements: Logement[]; style
   return (
     <MapContainer 
       center={position as L.LatLngExpression}
-      zoom={14} 
+      zoom={13} 
       style={style}
       scrollWheelZoom={true}
     >
