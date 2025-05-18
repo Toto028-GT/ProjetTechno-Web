@@ -42,7 +42,7 @@ export default function RootLayout({
     <main role="main">
       <div className="container ">
         <NavBar/>
-        <div className="pb-16"></div>
+        
         {children}
       </div>
     </main>
