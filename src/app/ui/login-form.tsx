@@ -1,10 +1,11 @@
 'use client';
- 
-import { Bouton } from '@/app/components/Bouton.tsx';
+
 import { useActionState } from 'react';
 import { authenticate } from '@/app/lib/actions';
 import { useSearchParams } from 'next/navigation';
- 
+import { ArrowLeft } from 'lucide-react';
+import { Bouton } from '@/app/components/Bouton';
+
 export default function LoginForm() {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get('callbackUrl') || '/';
@@ -12,71 +13,77 @@ export default function LoginForm() {
     authenticate,
     undefined,
   );
- 
+
   return (
-    <form action={formAction} className="space-y-3">
-      <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
-        <h1 className={`mb-3 text-2xl`}>
-          Please log in to continue.
-        </h1>
-        <div className="w-full">
-          <div>
-            <label
-              className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-              htmlFor="email"
-            >
-              Email
-            </label>
-            <div className="relative">
-              <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-                id="email"
-                type="email"
-                name="email"
-                placeholder="Enter your email address"
-                required
-              />
-               {/* <AtSymbolIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" /> */}
-            </div>
-          </div>
-          <div className="mt-4">
-            <label
-              className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-              htmlFor="password"
-            >
-              Password
-            </label>
-            <div className="relative">
-              <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-                id="password"
-                type="password"
-                name="password"
-                placeholder="Enter password"
-                required
-                minLength={5}
-              />
-              {/* <KeyIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" /> */}
-            </div>
-          </div>
+    <form
+      action={formAction}
+      className="space-y-6 bg-white rounded-2xl p-8 shadow-lg max-w-md mx-auto"
+    >
+      {/* Bouton retour */}
+      <Bouton
+        destination="/"
+        style="flex items-center text-purple-600 mb-8 hover:text-purple-700"
+      >
+        <ArrowLeft className="w-5 h-5 mr-2" />
+        Retour à l'accueil
+      </Bouton>
+
+      <h1 className="text-3xl font-bold mb-6 text-gray-900 text-center">
+        Please log in to continue.
+      </h1>
+
+      <div className="space-y-4">
+        <div>
+          <label
+            htmlFor="email"
+            className="block mb-2 text-sm font-medium text-gray-700"
+          >
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            placeholder="Enter your email address"
+            className="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none bg-white"
+          />
         </div>
-        <input type="hidden" name="redirectTo" value={callbackUrl} />
-        <button className="mt-4 w-full" aria-disabled={isPending}>
-          Log in  {/* <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" /> */}
-        </button>
-        <div
-          className="flex h-8 items-end space-x-1"
-          aria-live="polite"
-          aria-atomic="true"
-        >
-          {errorMessage && (
-            <>
-               {/* <ExclamationCircleIcon className="h-5 w-5 text-red-500" /> */}
-              <p className="text-sm text-red-500">{errorMessage}</p>
-            </>
-          )}
+
+        <div>
+          <label
+            htmlFor="password"
+            className="block mb-2 text-sm font-medium text-gray-700"
+          >
+            Password
+          </label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            required
+            minLength={5}
+            placeholder="Enter your password"
+            className="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none bg-white"
+          />
         </div>
       </div>
+
+      <input type="hidden" name="redirectTo" value={callbackUrl} />
+
+      <button
+        type="submit"
+        disabled={isPending}
+        className="w-full bg-purple-600 text-white py-3 rounded-md font-semibold hover:bg-purple-700 transition-colors disabled:opacity-50"
+      >
+        Log in
+      </button>
+
+      {errorMessage && (
+        <p className="mt-2 text-sm text-red-600" role="alert">
+          {errorMessage}
+        </p>
+      )}
     </form>
   );
 }
