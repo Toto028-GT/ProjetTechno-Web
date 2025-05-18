@@ -22,7 +22,7 @@ export default async function ApartmentMap() {
           </Bouton>
 
           <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 text-center flex-grow mx-8">
-            CARTE DES APPARTEMENTS
+            CARTE DES LOGEMENTS
           </h1>
 
           {/* Placeholder pour équilibrer */}
