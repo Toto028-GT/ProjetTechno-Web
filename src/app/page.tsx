@@ -1,25 +1,15 @@
 import { Building2, Map } from 'lucide-react';
 import { Bouton } from "./components/Bouton";
 import Link from 'next/link';
-import SideNav from './login/sidenav';
+import NavBar from '@/app/ui/navbar';
+
+
 
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-100 to-purple-50 relative">
-      <SideNav/>
-      <div className="absolute top-6 right-6 flex gap-4 z-50">
-        <Link href="/signUp">
-          <button className="bg-gradient-to-r from-purple-400 to-purple-600 text-white px-5 py-2 rounded-full shadow-md hover:shadow-lg hover:brightness-110 transition-all font-semibold">
-            S'inscrire
-          </button>
-        </Link>
-        <Link href="/login">
-          <button className="bg-white text-purple-700 border border-purple-600 px-5 py-2 rounded-full shadow-md hover:bg-purple-50 transition-all font-semibold">
-            Se connecter
-          </button>
-        </Link>
-      </div>
+      <NavBar />
 
       <div className="container mx-auto px-4 py-20">
         {/* Hero Section */}

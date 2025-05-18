@@ -1,5 +1,3 @@
-
-
 import { ArrowLeft } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { Bouton } from '../components/Bouton';
