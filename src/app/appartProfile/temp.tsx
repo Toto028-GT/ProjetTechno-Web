@@ -21,6 +21,7 @@ import EditableDate from "../components/EditableDate";
 import Notes from "@/app/components/AddNotes" ;
 import { VisiteStatus } from "@/app/components/VisiteStatuts";
 import DeleteBouton from  "@/app/components/DeleteBouton";
+import { MapWrapper } from "../components/MapWrapper";
 
 export default async function AppartInfo({ id }: { id: string }) {
   const session = await auth();
@@ -104,9 +105,7 @@ export default async function AppartInfo({ id }: { id: string }) {
           {/* Carte ou coordonnées géo */}
           <div className="mb-6">
             <h2 className="text-lg font-semibold mb-2">Localisation</h2>
-            <p className="text-gray-600">
-              Coordonnées : [{appart.location.lat}, {appart.location.lng}]
-            </p>
+            <MapWrapper logements={[appart]} style={{ height: "300px" ,width: "960px" }} />
             {/* Tu peux insérer une carte ici si tu utilises Leaflet, Mapbox ou autre */}
           </div>
         </div>

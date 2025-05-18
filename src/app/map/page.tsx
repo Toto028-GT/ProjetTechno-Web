@@ -23,7 +23,7 @@ export default async function ApartmentMap() {
         <h1 className="text-4xl font-bold mb-8 text-gray-900">Carte des Appartements</h1>
         
         <div className="h-[1000px] rounded-lg overflow-hidden shadow-lg">
-          <MapWrapper logements={appart} />
+          <MapWrapper logements={appart} style={{ height: "100%" ,width: "100%" }} />
         </div>
       </div>
     </div>
