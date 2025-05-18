@@ -1,283 +1,124 @@
 'use client';
- 
-import { Bouton } from '@/app/components/Bouton.tsx';
+
 import { useActionState } from 'react';
 import { ajoutAppart } from '@/app/lib/actions';
-import { useSearchParams } from 'next/navigation';
- 
+import { useSearchParams, useRouter } from 'next/navigation';
+import { Bouton } from '@/app/components/Bouton';
+import { ArrowLeft } from 'lucide-react';
+
 export default function InsertApp() {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get('callbackUrl') || '/';
-  const [errorMessage, formAction, isPending] = useActionState(
-    ajoutAppart,
-    undefined,
-  );
- 
+  const [errorMessage, formAction, isPending] = useActionState(ajoutAppart, undefined);
+
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push('/');
+  };
+
   return (
-    <div className="max-w-lg mx-auto mt-12">
-      <form action={formAction} className="space-y-3">
-        <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
-          <h1 className={`mb-3 text-2xl`}>
-            Ajouter un logement
-          </h1>
-          <div className="w-full">
-            <div>
-              <label
-                className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-                htmlFor="name"
-              >
-                Nom du logement
+    <div className="bg-white/90 backdrop-blur-md shadow-xl rounded-2xl p-8 max-w-3xl mx-auto">
+      
+      <Bouton
+        destination="/"
+        style="flex items-center text-purple-600 hover:text-purple-700 font-semibold mb-6"
+      >
+        <ArrowLeft className="w-5 h-5 mr-2" />
+        Retour à l'accueil
+      </Bouton>
+
+      <h1 className="text-3xl font-semibold text-gray-800 mb-6">Ajouter un logement</h1>
+
+      <form action={formAction} className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {[ 
+            { id: "name", label: "Nom du logement", type: "text", placeholder: "Nom du logement" },
+            { id: "adresse", label: "Adresse", type: "text", placeholder: "Adresse" },
+            { id: "image", label: "Image (URL)", type: "text", placeholder: "URL de l'image" },
+            { id: "prix", label: "Prix (€)", type: "number" },
+            { id: "superficie", label: "Superficie (m²)", type: "number" },
+            { id: "chambres", label: "Chambres", type: "number" },
+            { id: "sdb", label: "Salles de bain", type: "number" },
+            { id: "type", label: "Type", type: "text", placeholder: "T2, Studio..." },
+            { id: "lat", label: "Latitude", type: "number", step: "any" },
+            { id: "lng", label: "Longitude", type: "number", step: "any" },
+            { id: "dateVisite", label: "Date de visite", type: "date" },
+            { id: "note", label: "Note", type: "text", placeholder: "Ex : Proche du métro, très lumineux" },
+          ].map((input) => (
+            <div key={input.id}>
+              <label htmlFor={input.id} className="block text-sm font-medium text-gray-700">
+                {input.label}
               </label>
               <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-                id="name"
-                name="name"
-                type="text"
-                placeholder="Nom du logement"
+                {...input}
+                name={input.id}
+                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm text-sm focus:ring-purple-500 focus:border-purple-500"
                 required
               />
             </div>
-            <div>
-              <label
-                className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-                htmlFor="adresse"
-              >
-                Adresse
-              </label>
-              <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-                id="adresse"
-                name="adresse"
-                type="text"
-                placeholder="Adresse"
-                required
-              />
-            </div>
-            <div>
-              <label
-                className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-                htmlFor="image"
-              >
-                Image (URL)
-              </label>
-              <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-                id="image"
-                name="image"
-                type="text"
-                placeholder="URL de l'image"
-                required
-              />
-            </div>
-            <div>
-              <label
-                className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-                htmlFor="prix"
-              >
-                Prix (€)
-              </label>
-              <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-                id="prix"
-                name="prix"
-                type="number"
-                min="0"
-                required
-              />
-            </div>
-            <div>
-              <label
-                className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-                htmlFor="superficie"
-              >
-                Superficie (m²)
-              </label>
-              <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-                id="superficie"
-                name="superficie"
-                type="number"
-                min="0"
-                required
-              />
-            </div>
-            <div>
-              <label
-                className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-                htmlFor="chambres"
-              >
-                Chambres
-              </label>
-              <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-                id="chambres"
-                name="chambres"
-                type="number"
-                min="0"
-                required
-              />
-            </div>
-            <div>
-              <label
-                className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-                htmlFor="sdb"
-              >
-                Salles de bain
-              </label>
-              <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-                id="sdb"
-                name="sdb"
-                type="number"
-                min="0"
-                required
-              />
-            </div>
-            <div>
-              <label
-                className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-                htmlFor="parking"
-              >
-                Parking
-              </label>
-              <select
-                id="parking"
-                name="parking"
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2"
-                required
-              >
-                <option value="true">Oui</option>
-                <option value="false">Non</option>
-              </select>
-            </div>
-            <div>
-              <label
-                className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-                htmlFor="internet"
-              >
-                Internet
-              </label>
-              <select
-                id="internet"
-                name="internet"
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2"
-                required
-              >
-                <option value="true">Oui</option>
-                <option value="false">Non</option>
-              </select>
-            </div>
-            <div>
-              <label
-                className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-                htmlFor="type"
-              >
-                Type
-              </label>
-              <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-                id="type"
-                name="type"
-                type="text"
-                placeholder="Type (ex: T2, Studio...)"
-                required
-              />
-            </div>
-            <div>
-              <label
-                className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-                htmlFor="lat"
-              >
-                Latitude
-              </label>
-              <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-                id="lat"
-                name="lat"
-                type="number"
-                step="any"
-                required
-              />
-            </div>
-            <div>
-              <label
-                className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-                htmlFor="lng"
-              >
-                Longitude
-              </label>
-              <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-                id="lng"
-                name="lng"
-                type="number"
-                step="any"
-                required
-              />
-            </div>
-            <div>
-              <label
-                className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-                htmlFor="status"
-              >
-                Statut
-              </label>
-              <select
-                id="status"
-                name="status"
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2"
-                required
-              >
-                <option value="non visiter">Non visité</option>
-                <option value="visiter">Visité</option>
-              </select>
-            </div>
-            <div>
-              <label
-                className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-                htmlFor="dateVisite"
-              >
-                Date de visite
-              </label>
-              <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-                id="dateVisite"
-                name="dateVisite"
-                type="date"
-                required
-              />
-            </div>
-            <div>
-              <label
-                className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-                htmlFor="dateVisite"
-              >
-                Note
-              </label>
-              <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-                id="note"
-                name="note"
-                type="text"
-                required
-              />
-            </div>
+          ))}
+
+          <div>
+            <label htmlFor="parking" className="block text-sm font-medium text-gray-700">
+              Parking
+            </label>
+            <select
+              id="parking"
+              name="parking"
+              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm text-sm focus:ring-purple-500 focus:border-purple-500"
+              required
+            >
+              <option value="true">Oui</option>
+              <option value="false">Non</option>
+            </select>
           </div>
-          <button className="mt-4 w-full" aria-disabled={isPending}>
-            Ajouter le logement
-          </button>
-          <div
-            className="flex h-8 items-end space-x-1"
-            aria-live="polite"
-            aria-atomic="true"
-          >
-            {errorMessage && (
-              <>
-                <p className="text-sm text-red-500">{errorMessage}</p>
-              </>
-            )}
+
+          <div>
+            <label htmlFor="internet" className="block text-sm font-medium text-gray-700">
+              Internet
+            </label>
+            <select
+              id="internet"
+              name="internet"
+              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm text-sm focus:ring-purple-500 focus:border-purple-500"
+              required
+            >
+              <option value="true">Oui</option>
+              <option value="false">Non</option>
+            </select>
+          </div>
+
+          <div>
+            <label htmlFor="status" className="block text-sm font-medium text-gray-700">
+              Statut
+            </label>
+            <select
+              id="status"
+              name="status"
+              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm text-sm focus:ring-purple-500 focus:border-purple-500"
+              required
+            >
+              <option value="non visiter">Non visité</option>
+              <option value="visiter">Visité</option>
+            </select>
           </div>
         </div>
+
+        <button
+          type="submit"
+          className="w-full bg-purple-600 text-white py-2 px-4 rounded-md hover:bg-purple-700 transition"
+          aria-disabled={isPending}
+          onClick={handleClick}
+        >
+          Ajouter le logement
+        </button>
+
+        {errorMessage && (
+          <p className="text-sm text-red-500 mt-2" aria-live="polite">
+            {errorMessage}
+          </p>
+        )}
       </form>
     </div>
   );

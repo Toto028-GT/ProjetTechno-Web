@@ -45,14 +45,14 @@ let DefaultIcon = L.icon({
 
 L.Marker.prototype.options.icon = DefaultIcon;
 
-export default function Map({ logements }: MapProps) {
+export default function Map({ logements, style }: { logements: any[]; style?: React.CSSProperties }) {
   const position: LatLngExpression = [48.8566, 2.3522]; // Paris coordinates
 
   return (
     <MapContainer 
       center={position as L.LatLngExpression}
       zoom={13} 
-      style={{ height: '100%', width: '100%' }}
+      style={style}
       scrollWheelZoom={true}
     >
     <TileLayer
@@ -70,8 +70,6 @@ export default function Map({ logements }: MapProps) {
               {logement.adresse}<br />
               <img src={logement.image} alt={logement.name} style={{ width: '100%', borderRadius: 8 }} /><br />
               <strong>{logement.prix} €</strong> /mois<br />
-              {logement.superficie} m² - {logement.chambres} ch - {logement.sdb} sdb<br />
-              {logement.parking ? "Parking" : "Sans parking"} | {logement.internet ? "Internet" : "Pas d'internet"}<br />
               Visite : {logement.dateVisite}<br />
               Statut : {logement.status}
             </div>

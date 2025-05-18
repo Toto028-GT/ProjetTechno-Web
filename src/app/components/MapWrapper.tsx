@@ -11,6 +11,6 @@ const MapComponent = dynamic(() => import('./Map'), {
   )
 });
 
-export function MapWrapper({ logements }: { logements: any[] }) {
-  return <MapComponent logements={logements} />;
+export function MapWrapper({ logements, style }: { logements: any[]; style?: React.CSSProperties }) {
+  return <MapComponent logements={logements} style={style} />;
 }
