@@ -103,10 +103,9 @@ export default async function AppartInfo({ id }: { id: string }) {
           </div>
 
           {/* Carte ou coordonnées géo */}
-          <div className="mb-6">
-            <h2 className="text-lg font-semibold mb-2">Localisation</h2>
-            <MapWrapper logements={[appart]} style={{ height: "300px" ,width: "960px" }} />
-            {/* Tu peux insérer une carte ici si tu utilises Leaflet, Mapbox ou autre */}
+          <h2 className="text-lg font-semibold mb-2">Localisation</h2>
+          <div className="mb-6 rounded-lg overflow-hidden border border-gray-200">
+            <MapWrapper logements={[appart]} style={{ height: "300px", width: "960px" }} />
           </div>
         </div>
 

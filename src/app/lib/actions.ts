@@ -56,6 +56,7 @@ export async function ajoutAppart(
     return 'You must be logged in to add an apartment.'; 
   }
   else {
+    //@ts-ignore
     await newAppart(session.user.email,formData);
   }
   } catch (error) {

@@ -19,17 +19,8 @@ export default function LoginForm() {
       action={formAction}
       className="space-y-6 bg-white rounded-2xl p-8 shadow-lg max-w-md mx-auto"
     >
-      {/* Bouton retour */}
-      <Bouton
-        destination="/"
-        style="flex items-center text-purple-600 mb-8 hover:text-purple-700"
-      >
-        <ArrowLeft className="w-5 h-5 mr-2" />
-        Retour à l'accueil
-      </Bouton>
-
       <h1 className="text-3xl font-bold mb-6 text-gray-900 text-center">
-        Please log in to continue.
+        Veuillez vous connecter
       </h1>
 
       <div className="space-y-4">
@@ -45,7 +36,7 @@ export default function LoginForm() {
             name="email"
             type="email"
             required
-            placeholder="Enter your email address"
+            placeholder="Entrez votre adresse mail"
             className="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none bg-white"
           />
         </div>
@@ -55,7 +46,7 @@ export default function LoginForm() {
             htmlFor="password"
             className="block mb-2 text-sm font-medium text-gray-700"
           >
-            Password
+            Mot de passe
           </label>
           <input
             id="password"
@@ -63,7 +54,7 @@ export default function LoginForm() {
             type="password"
             required
             minLength={5}
-            placeholder="Enter your password"
+            placeholder="Entrez votre mot de passe"
             className="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none bg-white"
           />
         </div>
@@ -75,7 +66,7 @@ export default function LoginForm() {
         aria-disabled={isPending}
         className="w-full bg-purple-600 text-white py-3 rounded-md font-semibold hover:bg-purple-700 transition-colors disabled:opacity-50"
       >
-        Log in
+        Vous connecter
       </button>
 
       {errorMessage && (

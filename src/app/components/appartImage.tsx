@@ -12,7 +12,7 @@ export function AppartImage({ src, alt }: { src: string; alt: string }) {
 
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center"
+          className="fixed inset-0 bg-black bg-opacity-60 z-[100] flex items-center justify-center"
           onClick={() => setIsOpen(false)}
         >
           <img
