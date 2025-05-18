@@ -1,18 +1,16 @@
-'use client';
 
-import { useRouter } from 'next/navigation';
+
 import { ArrowLeft } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { Bouton } from '../components/Bouton';
+import { auth } from "../auth";
+import { getAllAppartFromEmail } from "@/app/api/models";
+import {MapWrapper} from '../components/MapWrapper';
 
-// Dynamically import the Map component to avoid SSR issues with Leaflet
-const MapComponent = dynamic(() => import('../components/Map') ,{
-  ssr: false,
-  loading: () => <div className="h-[600px] bg-gray-100 rounded-lg flex items-center justify-center">Chargement de la carte...</div>
-});
 
-export default function ApartmentMap() {
-  const router = useRouter();
+export default async function ApartmentMap() {
+  const session = await auth();
+  const appart = await getAllAppartFromEmail(session?.user?.email);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -25,7 +23,7 @@ export default function ApartmentMap() {
         <h1 className="text-4xl font-bold mb-8 text-gray-900">Carte des Appartements</h1>
         
         <div className="h-[1000px] rounded-lg overflow-hidden shadow-lg">
-          <MapComponent />
+          <MapWrapper logements={appart} />
         </div>
       </div>
     </div>

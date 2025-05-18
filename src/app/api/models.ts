@@ -189,7 +189,7 @@ export async function insertAppart(
     parking,
     internet,
     type,
-    location: [lat, lng] as [number, number],
+    location: {lat, lng},
     status,
     dateVisite,
     note

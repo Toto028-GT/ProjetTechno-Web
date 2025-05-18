@@ -15,7 +15,10 @@ interface Logement {
   parking: boolean;
   internet: boolean;
   type: string;
-  location: [number, number];
+  location: {
+    lat: number;
+    lng: number;
+  };
   status: string;
   dateVisite: string;
   note: string;

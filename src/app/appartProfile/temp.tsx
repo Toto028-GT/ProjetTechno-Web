@@ -105,7 +105,7 @@ export default async function AppartInfo({ id }: { id: string }) {
           <div className="mb-6">
             <h2 className="text-lg font-semibold mb-2">Localisation</h2>
             <p className="text-gray-600">
-              Coordonnées : [{appart.location[0]}, {appart.location[1]}]
+              Coordonnées : [{appart.location.lat}, {appart.location.lng}]
             </p>
             {/* Tu peux insérer une carte ici si tu utilises Leaflet, Mapbox ou autre */}
           </div>
