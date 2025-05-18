@@ -1,28 +1,38 @@
 import { ArrowLeft } from 'lucide-react';
-import dynamic from 'next/dynamic';
 import { Bouton } from '../components/Bouton';
 import { auth } from "../auth";
 import { getAllAppartFromEmail } from "@/app/api/models";
-import {MapWrapper} from '../components/MapWrapper';
-
+import { MapWrapper } from '../components/MapWrapper';
 
 export default async function ApartmentMap() {
   const session = await auth();
   const appart = await getAllAppartFromEmail(session?.user?.email);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-8">
-      <Bouton destination="/" style="flex items-center text-purple-600 mb-8 hover:text-purple-700">
-        <ArrowLeft className="w-5 h-5 mr-2" />
-        Retour à l'accueil
-      </Bouton>
+    <div className="min-h-screen bg-gradient-to-b from-purple-100 to-white flex flex-col">
+      <div className="container mx-auto px-6 py-8 flex flex-col gap-8">
+        {/* En-tête */}
+        <header className="flex items-center justify-between">
+          <Bouton
+            destination="/"
+            style="flex items-center text-purple-600 hover:text-purple-700 font-semibold"
+          >
+            <ArrowLeft className="w-5 h-5 mr-2" />
+            Retour à l'accueil
+          </Bouton>
 
-        <h1 className="text-4xl font-bold mb-8 text-gray-900">Carte des Appartements</h1>
-        
-        <div className="h-[1000px] rounded-lg overflow-hidden shadow-lg">
-          <MapWrapper logements={appart} style={{ height: "100%" ,width: "100%" }} />
-        </div>
+          <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 text-center flex-grow mx-8">
+            CARTE DES APPARTEMENTS
+          </h1>
+
+          {/* Placeholder pour équilibrer */}
+          <div style={{ width: 140 }} />
+        </header>
+
+        {/* Carte */}
+        <main className="flex-grow rounded-xl shadow-lg overflow-hidden border border-gray-200">
+          <MapWrapper logements={appart} style={{ height: '80vh', width: '100%' }} />
+        </main>
       </div>
     </div>
   );

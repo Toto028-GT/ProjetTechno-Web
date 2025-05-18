@@ -11,7 +11,7 @@ function SignIn({ co }: any) {
           }}
         >
            <button className="bg-white text-red-700 border border-red-600 px-5 py-2 rounded-full shadow-md hover:bg-red-50 transition-all font-semibold">
-            Sign Out
+            Se déconnecter
           </button>
         </form>
     );
