@@ -46,13 +46,15 @@ let DefaultIcon = L.icon({
 
 L.Marker.prototype.options.icon = DefaultIcon;
 
-export default function Map({ logements, style }: { logements: any[]; style?: React.CSSProperties }) {
-  const position: LatLngExpression = [48.8566, 2.3522]; // Paris coordinates
+export default function Map({ logements, style }: { logements: Logement[]; style?: React.CSSProperties }) {
+  const l_lat = (logements.map((x:Logement) => x.location.lat)); 
+  const l_lng = (logements.map((x:Logement) => x.location.lng));
+  const position: LatLngExpression = [(Math.min(...l_lat)+Math.max(...l_lat))/2,(Math.min(...l_lng)+Math.max(...l_lng))/2]; 
 
   return (
     <MapContainer 
       center={position as L.LatLngExpression}
-      zoom={13} 
+      zoom={14} 
       style={style}
       scrollWheelZoom={true}
     >
