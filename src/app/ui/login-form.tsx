@@ -19,15 +19,6 @@ export default function LoginForm() {
       action={formAction}
       className="space-y-6 bg-white rounded-2xl p-8 shadow-lg max-w-md mx-auto"
     >
-      {/* Bouton retour */}
-      <Bouton
-        destination="/"
-        style="flex items-center text-purple-600 mb-8 hover:text-purple-700"
-      >
-        <ArrowLeft className="w-5 h-5 mr-2" />
-        Retour à l'accueil
-      </Bouton>
-
       <h1 className="text-3xl font-bold mb-6 text-gray-900 text-center">
         Veuillez vous connecter
       </h1>
