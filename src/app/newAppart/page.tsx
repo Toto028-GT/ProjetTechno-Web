@@ -1,14 +1,12 @@
 import InsertApp from '@/app/ui/insert-appart';
 import { Suspense } from 'react';
- 
+
 export default function NewAppart() {
   return (
-    <main className="flex md:h-screen">
-      <div className="relative mx-auto flex w-full max-w-[400px] flex-col space-y-2.5 p-4 ">
-        <div className="flex h-20 w-full items-end rounded-lg bg-blue-500 p-3 md:h-36">
-        </div>
+    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-900 via-purple-800 to-fuchsia-700 px-4">
+      <div className="w-full max-w-3xl">
         <Suspense>
-            <InsertApp />
+          <InsertApp />
         </Suspense>
       </div>
     </main>
