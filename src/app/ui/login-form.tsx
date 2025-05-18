@@ -72,8 +72,7 @@ export default function LoginForm() {
       <input type="hidden" name="redirectTo" value={callbackUrl} />
 
       <button
-        type="submit"
-        disabled={isPending}
+        aria-disabled={isPending}
         className="w-full bg-purple-600 text-white py-3 rounded-md font-semibold hover:bg-purple-700 transition-colors disabled:opacity-50"
       >
         Log in

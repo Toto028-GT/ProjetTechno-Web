@@ -39,7 +39,7 @@ export default function Home() {
             style="bg-white text-purple-700 rounded-2xl p-10 shadow-lg hover:shadow-2xl transition-all group"
           >
             <Building2 className="w-16 h-16 mx-auto mb-4 text-purple-500 group-hover:scale-110 transition-transform" />
-            <h2 className="text-2xl font-bold mb-2">Liste des Appartements</h2>
+            <h2 className="text-2xl font-bold mb-2">Liste des logements</h2>
             <p className="text-gray-600">Consultez tous les logements que vous avez enregistrés</p>
           </Bouton>
 
@@ -49,7 +49,7 @@ export default function Home() {
           >
             <Map className="w-16 h-16 mx-auto mb-4 text-purple-500 group-hover:scale-110 transition-transform" />
             <h2 className="text-2xl font-bold mb-2">Carte Interactive</h2>
-            <p className="text-gray-600">Visualisez facilement vos appartements sur une carte</p>
+            <p className="text-gray-600">Visualisez facilement vos logements sur une carte</p>
           </Bouton>
         </div>
 

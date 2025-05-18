@@ -52,29 +52,29 @@ export default async function cardApparts() {
             <div className="grid grid-cols-2 gap-4 mb-6">
               <div className="flex items-center text-gray-700">
                 <Bed className="h-5 w-5 mr-2" />
-                <span>{apt.chambres} Beds</span>
+                <span>{apt.chambres} Chambre(s)</span>
               </div>
               <div className="flex items-center text-gray-700">
                 <Bath className="h-5 w-5 mr-2" />
-                <span>{apt.sdb} Baths</span>
+                <span>{apt.sdb} Salle(s) de bain</span>
               </div>
               <div className="flex items-center text-gray-700">
                 <Ruler className="h-5 w-5 mr-2" />
-                <span>{apt.superficie} sqft</span>
+                <span>{apt.superficie} m²</span>
               </div>
               <div className="flex items-center text-gray-700">
                 <Car className="h-5 w-5 mr-2" />
-                <span>{apt.parking ? "Parking" : "No parking"}</span>
+                <span>{apt.parking ? "Parking" : "Parking non disponible"}</span>
               </div>
             </div>
 
             <div className="flex items-center justify-between">
               <div className="flex items-center text-gray-700">
                 <Wifi className="h-5 w-5 mr-2" />
-                <span>{apt.internet ? "Internet included" : "No internet"}</span>
+                <span>{apt.internet ? "Internet inclue" : "Pas d'internet"}</span>
               </div>
               <Bouton destination={`/appartProfile/${apt.id}`} style="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors">
-                View Details
+                Voir les details
               </Bouton>
             </div>
           </div>
