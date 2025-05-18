@@ -51,7 +51,7 @@ export default async function NavBar() {
   const session = await auth();
   console.log("Etat connection");
   return (
-    <div className="py-0 bg-gradient-to-b from-purple-100 to-purple-50 shadow-md fixed w-full z-50">
+    <div className="container bg-gradient-to-b from-purple-100 to-purple-50 shadow-md fixed w-full z-50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="text-2xl font-bold text-purple-700">
           <div className="flex items-center space-x-3">
