@@ -1,7 +1,6 @@
 import { Building2, Map } from 'lucide-react';
 import { Bouton } from "./components/Bouton";
 import Link from 'next/link';
-import NavBar from '@/app/ui/navbar';
 
 
 
@@ -9,8 +8,6 @@ import NavBar from '@/app/ui/navbar';
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-100 to-purple-50 relative">
-      <NavBar />
-
       <div className="container mx-auto px-4 py-20">
         {/* Hero Section */}
         <div className="text-center mb-20">
