@@ -220,7 +220,6 @@ export async function insertAppart(
   };
   const result = await collection.updateOne(
     { email: email },
-    //@ts-ignore
     { $push: { logements: newAppart } }
   );
   return result;
