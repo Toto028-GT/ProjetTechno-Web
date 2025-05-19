@@ -40,7 +40,7 @@ function SignUp({ co }: any) {
     return (
     <Link href="/newAppart">
       <button className="bg-gradient-to-r from-purple-400 to-purple-600 text-white px-5 py-2 rounded-full shadow-md hover:shadow-lg hover:brightness-110 transition-all font-semibold">
-        + Ajouter un appartement
+        + Ajouter un logement
       </button>
     </Link>
     );
