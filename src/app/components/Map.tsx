@@ -3,7 +3,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import icon from '@/app/assets/marker-icon.png';
+import icon from '@/app/ui/marker-icon.png';
 import iconShadow from '../../../node_modules/leaflet/dist/images/marker-shadow.png';
 import { LatLngExpression } from 'leaflet';
 import { TileLayer as LeafletTileLayer, TileLayerOptions } from 'leaflet';
