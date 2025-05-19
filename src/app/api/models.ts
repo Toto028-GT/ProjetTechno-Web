@@ -242,7 +242,6 @@ export async function insertAppart(
   console.log(typeof(newAppart.prix));
   const result = await collection.updateOne(
     { email: email },
-    //@ts-ignore
     { $push: { logements: newAppart } }
   );
   return result;
