@@ -52,11 +52,10 @@ export async function ajoutAppart(
 ) {
   try {
   const session = await auth();
-  if (!session?.user) {
+  if (!session?.user || !session.user.email) {
     return 'You must be logged in to add an apartment.'; 
   }
   else {
-    //@ts-ignore
     await newAppart(session.user.email,formData);
   }
   } catch (error) {
