@@ -1,6 +1,7 @@
 import { MongoClient } from 'mongodb';
 
-const mongoUrl = 'mongodb://localhost:27017';
+const mongoUri = process.env.MONGODB_URI as string;
+const mongoUrl = mongoUri;
 const client = new MongoClient(mongoUrl);
 
 interface Logement {
