@@ -6,7 +6,7 @@ export async function POST(request: Request) {
   const { status, appartId } = await request.json();
   const session = await auth();
 
-  if (!appartId) {
+  if (appartId === null || appartId === undefined) {
     return NextResponse.json({ error: 'Données manquantes' }, { status: 400 });
   }
 
