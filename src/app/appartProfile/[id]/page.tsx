@@ -3,8 +3,8 @@ import { ArrowLeft } from "lucide-react";
 import * as React from "react";
 import AppartInfo from "../temp.tsx";
 
-export default async function AppartProfile({ params }: { params: { id: string } }) {
-  const { id } = await params;
+export default function AppartProfile({ params }: { params: { id: string } }) {
+  const { id } = params;
   return (
     <div className="min-h-screen bg-gradient-to-tr from-purple-50 via-purple-100 to-purple-50">
       <main className="max-w-7xl mx-auto px-12 py-10 sm:px-14 lg:px-24">
