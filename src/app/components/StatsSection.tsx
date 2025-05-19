@@ -58,7 +58,7 @@ const StatsSection: React.FC<StatsSectionProps> = ({ stats }) => {
         
         <StatCard 
           title="Taille la plus courante" 
-          value={`${Object.entries(stats.bedroomsDistribution).sort((a, b) => b[1] - a[1])[0][0]} chambre(s)`} 
+          value={stats.bedroomsDistribution && Object.keys(stats.bedroomsDistribution).length > 0? `${Object.entries(stats.bedroomsDistribution).sort((a, b) => b[1] - a[1])[0][0]} chambre(s)`: "Aucune donnée"} 
           icon={Bed}
           color="bg-rose-500"
         />

@@ -34,6 +34,8 @@ interface User {
   mdp: string;
   logements: Logement[];
   phone : string;
+  createdAt : string;
+  address : string;
 }
 
 export const getCollections = async() => {

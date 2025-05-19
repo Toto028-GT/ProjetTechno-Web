@@ -33,28 +33,39 @@ interface UserStats {
 
 export const calculateUserStats = (properties: Logement[]): UserStats => {
   const totalProperties = properties.length;
-  const totalPrice = properties.reduce((sum, property) => sum + property.prix, 0);
-  const totalArea = properties.reduce((sum, property) => sum + property.superficie, 0);
 
-  // Calculate bedrooms distribution
-  const bedroomsCount: Record<string, number> = {};
-  properties.forEach(property => {
-    const key = `${property.chambres}`;
-    bedroomsCount[key] = (bedroomsCount[key] || 0) + 1;
-  });
-  
-  // Find most common property type
-  const typeCount: Record<string, number> = {};
-  properties.forEach(property => {
-    typeCount[property.type] = (typeCount[property.type] || 0) + 1;
-  });
-  const mostCommonType = Object.entries(typeCount).sort((a, b) => b[1] - a[1])[0][0];
-  
-  // Count listings by status
-  const wasVisited = properties.filter(p => p.status === 'visiter').length;
-  const readyToVisited = properties.filter(p => p.status === 'visite prevu').length;
-  const notVisited = properties.filter(p => p.status === 'non visiter').length;
-  
+  let totalPrice = 0;
+  let totalArea = 0;
+  let bedroomsCount: Record<string, number> = {};
+  let typeCount: Record<string, number> = {};
+  let mostCommonType = "N/A";
+  let wasVisited = 0;
+  let readyToVisited = 0;
+  let notVisited = 0;
+
+  if (totalProperties > 0) {
+    totalPrice = properties.reduce((sum, property) => sum + property.prix, 0);
+    totalArea = properties.reduce((sum, property) => sum + property.superficie, 0);
+
+    // Chambres
+    properties.forEach((property) => {
+      const key = `${property.chambres}`;
+      bedroomsCount[key] = (bedroomsCount[key] || 0) + 1;
+    });
+
+    // Types
+    properties.forEach((property) => {
+      typeCount[property.type] = (typeCount[property.type] || 0) + 1;
+    });
+
+    mostCommonType = Object.entries(typeCount).sort((a, b) => b[1] - a[1])[0][0];
+
+    // Statuts
+    wasVisited = properties.filter((p) => p.status === 'visiter').length;
+    readyToVisited = properties.filter((p) => p.status === 'visite prévu').length;
+    notVisited = properties.filter((p) => p.status === 'non visiter').length;
+  }
+
   return {
     totalProperties,
     averagePrice: totalProperties ? Math.round(totalPrice / totalProperties) : 0,
