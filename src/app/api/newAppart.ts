@@ -28,8 +28,8 @@ export async function newAppart(mail: string, credentials: any) {
     coords.lat,         // Utilisation ici
     coords.lng,         // Utilisation ici
     credentials.get("status"),
-    credentials.get("dateVisite"),
-    credentials.get("note")
+    "0000-00-00",
+    ""
   );
 
   return null;

@@ -11,12 +11,6 @@ export default function InsertApp() {
   const callbackUrl = searchParams.get('callbackUrl') || '/';
   const [errorMessage, formAction, isPending] = useActionState(ajoutAppart, undefined);
 
-  const router = useRouter();
-
-  const handleClick = () => {
-    router.push('/');
-  };
-
   return (
     <div className="bg-white/90 backdrop-blur-md shadow-xl rounded-2xl p-8 max-w-3xl mx-auto">
 
@@ -25,7 +19,7 @@ export default function InsertApp() {
       <form action={formAction} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {[ 
-            { id: "name", label: "Nom du logement", type: "text", placeholder: "Nom du logement" },
+            { id: "name", label: "Nom du logement", type: "text", placeholder: "Nom du logement"},
             { id: "adresse", label: "Adresse", type: "text", placeholder: "Adresse" },
             { id: "image", label: "Image (URL)", type: "text", placeholder: "URL de l'image" },
             { id: "prix", label: "Prix (€)", type: "number" },
@@ -35,8 +29,8 @@ export default function InsertApp() {
             { id: "type", label: "Type", type: "text", placeholder: "T2, Studio..." },
             //{ id: "lat", label: "Latitude", type: "number", step: "any" },
             //{ id: "lng", label: "Longitude", type: "number", step: "any" },
-            { id: "dateVisite", label: "Date de visite", type: "date" },
-            { id: "note", label: "Note", type: "text", placeholder: "Ex : Proche du métro, très lumineux" },
+            //{ id: "dateVisite", label: "Date de visite", type: "date" },
+            //{ id: "note", label: "Note", type: "text", text: " ", placeholder: "Ex : Proche du métro, très lumineux" },
           ].map((input) => (
             <div key={input.id}>
               <label htmlFor={input.id} className="block text-sm font-medium text-gray-700">
@@ -98,11 +92,11 @@ export default function InsertApp() {
           </div>
         </div>
 
+        <input type="hidden" name="redirectTo" value={callbackUrl} />
+
         <button
-          type="submit"
           className="w-full bg-purple-600 text-white py-2 px-4 rounded-md hover:bg-purple-700 transition"
           aria-disabled={isPending}
-          onClick={handleClick}
         >
           Ajouter le logement
         </button>
