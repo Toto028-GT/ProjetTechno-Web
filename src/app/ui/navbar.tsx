@@ -47,6 +47,21 @@ function SignUp({ co }: any) {
   }
 }
 
+function UserProfile({ co }: any) {
+  if (co) {
+    return (
+    <Link href="/profileUser">
+      <button className="bg-gradient-to-r from-purple-400 to-purple-600 text-white px-5 py-2 rounded-full shadow-md hover:shadow-lg hover:brightness-110 transition-all font-semibold">
+        Mon profil
+      </button>
+    </Link>
+    );
+  }
+  else {
+    return null
+  }
+}
+
 export default async function NavBar() {
   const session = await auth();
   console.log("Etat connection");
@@ -64,6 +79,7 @@ export default async function NavBar() {
         <nav className="gap-4 flex items-center">
         <SignIn co={session} />
         <SignUp co={session} />
+        <UserProfile co={session} />
       </nav>
       </div>
     </div>
