@@ -6,7 +6,6 @@ import { get } from "http";
 export async function getAllAppartFromEmail(email : any){
     try {
         const collection = await getCollections();
-        // @ts-ignore
         const user = await collection.findOne({ email: email },{ projection: { _id: 0, logements: 1 } });
 
         const list = user?.logements || [];
@@ -20,7 +19,6 @@ export async function getAllAppartFromEmail(email : any){
 export async function getElementById(id: any){
     try {
         const collection = await getCollections();
-        // @ts-ignore
         const element = await collection.findOne({"_id": id });
         //Renvoyer le tableau JSON à l'utilisateur
         //console.log(list);
@@ -33,7 +31,6 @@ export async function getElementById(id: any){
 export async function postElement(logement: any){
     try {
         const collection = await getCollections();
-        // @ts-ignore
         const result = await collection.insertOne(logement);
         //Renvoyer le tableau JSON à l'utilisateur
         //console.log(list);
@@ -49,7 +46,6 @@ export async function postElement(logement: any){
 export async function deleteElement(id: any){
     try {
         const collection = await getCollections();
-        // @ts-ignore
         const result = await collection.deleteOne({"_id": id});
         //Renvoyer le tableau JSON à l'utilisateur
         //console.log(list);
@@ -64,8 +60,7 @@ export async function deleteElement(id: any){
 export async function updateElement(id: any,change: any){
     try {
         const collection = await getCollections();
-        // @ts-ignore
-        const result = await collection?.updateOne({"_id": id},{
+        const result = await collection.updateOne({"_id": id},{
             $set: change,
             $currentDate: { lastUpdated: true }
           });
@@ -83,7 +78,6 @@ export async function getUserByID(id: any){
     try {
         const collection = await getCollections();
         let element;
-        // @ts-ignore
         element = await collection.findOne({"email": id},{projection: { logements: 0 } });
         //Renvoyer le tableau JSON à l'utilisateur
         return element;
@@ -106,7 +100,7 @@ export async function createNewUser(email: any,password: any, nom: any, prenom: 
         let element;
         if(avatar==""){avatar="https://static.vecteezy.com/ti/vecteur-libre/p1/5544753-profil-icone-design-vecteur-gratuit-vectoriel.jpg"}
         // @ts-ignore
-        element = await collection?.insertOne({"email": email,"avatar": avatar, "nom": nom, "prenom": prenom, "mdp": password, "logements": [],"phone": phone , "createdAt" : getTodayFormatted(), "address": adress});
+        element = await collection.insertOne({"email": email,"avatar": avatar, "nom": nom, "prenom": prenom, "mdp": password, "logements": [],"phone": phone , "createdAt" : getTodayFormatted(), "address": adress});
         //Renvoyer le tableau JSON à l'utilisateur
         return element?.insertedId;
     } catch (error) {
@@ -119,11 +113,10 @@ export async function getAppartByID(id : any, user : any) {
     return list.find((appart: any) => appart.id === parseInt(id));
 }
 
-export async function updateVisiteStatus(email: string | null | undefined, appartId: number, newStatus: "visiter" | "non visiter" |"visite prévu") {
+export async function updateVisiteStatus(email: string , appartId: number, newStatus: "visiter" | "non visiter" |"visite prévu") {
   const collection = await getCollections();
-  const result = await collection?.updateOne(
+  const result = await collection.updateOne(
     { 
-      //@ts-ignore
       email: email,           // filtre utilisateur
       "logements.id": appartId // logement dans le tableau
     },
@@ -135,9 +128,9 @@ export async function updateVisiteStatus(email: string | null | undefined, appar
   return result;
 }
 
-export async function updateVisiteDate(email: string | null | undefined, appartId: number, newDate: any) {
+export async function updateVisiteDate(email: string, appartId: number, newDate: any) {
   const collection = await getCollections();
-  const result = await collection?.updateOne(
+  const result = await collection.updateOne(
     { 
       //@ts-ignore
       email: email,           // filtre utilisateur
@@ -151,9 +144,9 @@ export async function updateVisiteDate(email: string | null | undefined, appartI
   return result;
 }
 
-export async function updateNote(email: string | null | undefined, appartId: number, newNote : any) {
+export async function updateNote(email: string, appartId: number, newNote : any) {
   const collection = await getCollections();
-  const result = await collection?.updateOne(
+  const result = await collection.updateOne(
     { 
       //@ts-ignore
       email: email,           // filtre utilisateur
@@ -169,7 +162,7 @@ export async function updateNote(email: string | null | undefined, appartId: num
 export async function deleteAppart(email: string | null | undefined, appartId: number) {
   const collection = await getCollections();
 
-  const result = await collection?.updateOne(
+  const result = await collection.updateOne(
     {
       //@ts-ignore
       email: email,             // filtre utilisateur
@@ -203,7 +196,8 @@ export async function insertAppart(
   note: string
 ) {
   const collection = await getCollections();
-  const id = await getAllAppartFromEmail(email).then((list) => list.length + 1);
+  const allApp = await getAllAppartFromEmail(email);
+  const id = Math.max(...allApp.map((app: any) => app.id)) + 1;
   const newAppart = {
     id,
     name,
@@ -221,7 +215,7 @@ export async function insertAppart(
     dateVisite,
     note
   };
-  const result = await collection?.updateOne(
+  const result = await collection.updateOne(
     { email: email },
     //@ts-ignore
     { $push: { logements: newAppart } }

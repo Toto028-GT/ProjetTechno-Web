@@ -13,7 +13,6 @@ export interface LogementInput {
 export async function getAllElement(){
     try {
         const collection = await getCollections();
-        // @ts-ignore
         const list = await collection.find().toArray();
         //Renvoyer le tableau JSON à l'utilisateur
         //console.log(list);
@@ -26,7 +25,6 @@ export async function getAllElement(){
 export async function getElementById(id: any){
     try {
         const collection = await getCollections();
-        // @ts-ignore
         const element = await collection.findOne({"_id": id});
         //Renvoyer le tableau JSON à l'utilisateur
         //console.log(list);
@@ -39,7 +37,6 @@ export async function getElementById(id: any){
 export async function postElement(logement: any){
     try {
         const collection = await getCollections();
-        // @ts-ignore
         const result = await collection.insertOne(logement);
         //Renvoyer le tableau JSON à l'utilisateur
         //console.log(list);
@@ -55,7 +52,6 @@ export async function postElement(logement: any){
 export async function deleteElement(id: any){
     try {
         const collection = await getCollections();
-        // @ts-ignore
         const result = await collection.deleteOne({"_id": id});
         //Renvoyer le tableau JSON à l'utilisateur
         //console.log(list);
@@ -70,8 +66,7 @@ export async function deleteElement(id: any){
 export async function updateElement(id: any,change: any){
     try {
         const collection = await getCollections();
-        // @ts-ignore
-        const result = await collection?.updateOne({"_id": id},{
+        const result = await collection.updateOne({"_id": id},{
             $set: change,
             $currentDate: { lastUpdated: true }
           });
