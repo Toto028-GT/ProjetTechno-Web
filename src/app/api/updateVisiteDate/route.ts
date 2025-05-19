@@ -8,7 +8,7 @@ export async function POST(request: Request) {
   if (!session?.user || !session.user.email) {
     return NextResponse.json({ error: 'Utilisateur non authentifié' }, { status: 401 });
   }
-  if (!appartId) {
+  if (appartId === null || appartId === undefined ) {
     return NextResponse.json({ error: 'Données manquantes' }, { status: 400 });
   }
 
