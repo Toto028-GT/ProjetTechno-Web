@@ -38,14 +38,12 @@ interface User {
   address : string;
 }
 
-export const getCollections = async() => {
-  try{
+export const getCollections = async () => {
+  try {
     await client.connect();
-    const collection = client.db('logement').collection<User>('users');
-    return collection;
-  }
-  catch (error) {
+    return client.db('logement').collection<User>('users');
+  } catch (error) {
     console.error('Error data:', error);
-    //res.status(500).json({ error: 'Internal Server Error' });
+    throw new Error('Could not get MongoDB collection');
   }
 }
