@@ -10,6 +10,15 @@ export default async function ProfileUser() {
     const user = await getUserByID(session?.user?.email);
     const apartments = await getAllAppartFromEmail(session?.user?.email);
     const userStats = calculateUserStats(apartments);
+
+    const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat('fr-FR', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    }).format(date);
+  };
     
     return (
         <div className="min-h-screen bg-gradient-to-tr from-purple-50 via-purple-100 to-purple-50">
@@ -47,7 +56,8 @@ export default async function ProfileUser() {
 
                         <div className="flex items-center text-gray-600">
                             <Calendar className="h-5 w-5 mr-2 text-blue-500" />
-                            {/*<span>Member since {new Date(user.createdAt).toLocaleDateString()}</span>*/}
+                            <span>Membre depuis {//@ts-ignore 
+                            formatDate(user?.createdAt)}</span>
                         </div>
                     </div>
                 </div>
