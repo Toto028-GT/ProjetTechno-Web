@@ -4,9 +4,9 @@ db.users.insertMany([
   {
     pseudo: "test",
     email: "test@gmail.com",
-    avatar: "r",
-    nom: "pidule",
-    prenom: "truc",
+    avatar: "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg",
+    nom: "Freedent",
+    prenom: "Arthur",
     mdp: "test1",
     logements: [
       {
@@ -221,7 +221,7 @@ db.users.insertMany([
   {
     pseudo: "test2",
     email: "test2@gmail.com",
-    avatar: "r",
+    avatar: "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg",
     nom: "ok",
     prenom: "cool",
     mdp: "test2",
