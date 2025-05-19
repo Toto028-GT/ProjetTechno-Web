@@ -92,6 +92,7 @@ export default function InsertApp() {
               required
             >
               <option value="non visiter">Non visité</option>
+              <option value="visiter">Visite prévu</option>
               <option value="visiter">Visité</option>
             </select>
           </div>

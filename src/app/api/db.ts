@@ -14,7 +14,7 @@ interface Logement {
   sdb: number;
   parking: boolean;
   internet: boolean;
-  type: string;
+  type: "Appartement" | "Loft" | "Studio" | "Penthouse";
   location: {
     lat: number;
     lng: number;
@@ -33,6 +33,7 @@ interface User {
   prenom: string;
   mdp: string;
   logements: Logement[];
+  phone : string;
 }
 
 export const getCollections = async() => {

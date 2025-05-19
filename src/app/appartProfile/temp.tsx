@@ -89,7 +89,7 @@ export default async function AppartInfo({ id }: { id: string }) {
             <div className="flex items-center space-x-2">
               <Info className="w-5 h-5" />
               <VisiteStatus 
-                initialStatus={appart.status === "non visiter" ? "non visiter" : "visiter"} 
+                initialStatus={appart.status === "non visiter"? "non visiter": appart.status === "visite prévu"? "visite prévu": "visiter"}
                 appartId={appart.id} 
               />
             </div>

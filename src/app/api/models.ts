@@ -110,7 +110,7 @@ export async function getAppartByID(id : any, user : any) {
     return list[id-1];
 }
 
-export async function updateVisiteStatus(email: string | null | undefined, appartId: number, newStatus: "visiter" | "non visiter") {
+export async function updateVisiteStatus(email: string | null | undefined, appartId: number, newStatus: "visiter" | "non visiter" |"visite prévu") {
   const collection = await getCollections();
   const result = await collection?.updateOne(
     { 
@@ -186,7 +186,7 @@ export async function insertAppart(
   sdb: number,
   parking: boolean,
   internet: boolean,
-  type: string,
+  type: "Appartement" | "Loft" | "Studio" | "Penthouse",
   lat: number|null, 
   lng: number|null,
   status: string,
