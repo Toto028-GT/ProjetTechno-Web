@@ -55,17 +55,17 @@ export default function Home() {
           <div className="mt-32 max-w-5xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-purple-800 mb-10">Pourquoi centraliser vos recherches ici ?</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white rounded-xl p-6 shadow-md">
+              <div className="bg-white rounded-xl p-6">
                 <Building2 className="w-12 h-12 mx-auto text-purple-500 mb-4" />
                 <h3 className="text-xl font-semibold mb-2">Tout est centralisé</h3>
                 <p className="text-gray-600">Fini les onglets partout. Tous vos logements sont ici.</p>
               </div>
-              <div className="bg-white rounded-xl p-6 shadow-md">
+              <div className="bg-white rounded-xl p-6">
                 <Map className="w-12 h-12 mx-auto text-purple-500 mb-4" />
                 <h3 className="text-xl font-semibold mb-2">Carte interactive</h3>
                 <p className="text-gray-600">Repérez facilement vos biens sur la carte.</p>
               </div>
-              <div className="bg-white rounded-xl p-6 shadow-md">
+              <div className="bg-white rounded-xl p-6">
                 <svg className="w-12 h-12 mx-auto text-purple-500 mb-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 20l9 2-9-18-9 18 9-2z" /></svg>
                 <h3 className="text-xl font-semibold mb-2">Notes personnalisées</h3>
                 <p className="text-gray-600">Ajoutez vos remarques et impressions sur chaque logement.</p>
