@@ -24,7 +24,7 @@ export default async function cardApparts() {
   if (!session || !session.user) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <h1 className="text-2xl font-bold text-gray-800">Veuillez vous connecter pour voir vos appartements</h1>
+        <h1 className="text-2xl font-bold text-gray-800">Veuillez vous connecter pour voir vos logements.</h1>
       </div>
     );
   } else {
