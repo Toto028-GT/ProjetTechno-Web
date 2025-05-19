@@ -92,12 +92,21 @@ export async function getUserByID(id: any){
     }
 }
 
-export async function createNewUser(email: any,password: any, nom: any, prenom: any){
+function getTodayFormatted(): string {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0'); // +1 car janvier = 0
+  const day = String(today.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+export async function createNewUser(email: any,password: any, nom: any, prenom: any, avatar: any, phone: any, adress: any){
     try {
         const collection = await getCollections();
         let element;
+        console.log(getTodayFormatted());
         // @ts-ignore
-        element = await collection?.insertOne({"email": email, "mdp": password, "nom": nom, "prenom": prenom, "logements": []});
+        element = await collection?.insertOne({"email": email,"avatar": avatar, "nom": nom, "prenom": prenom, "mdp": password, "logements": [],"phone": phone , "createdAt" : getTodayFormatted(), "address": adress});
         //Renvoyer le tableau JSON à l'utilisateur
         return element?.insertedId;
     } catch (error) {
