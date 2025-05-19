@@ -203,7 +203,8 @@ export async function insertAppart(
   note: string
 ) {
   const collection = await getCollections();
-  const id = await getAllAppartFromEmail(email).then((list) => list.length + 1);
+  const allApp = await getAllAppartFromEmail(email);
+  const id = Math.max(...allApp.map((app: any) => app.id)) + 1;
   const newAppart = {
     id,
     name,
