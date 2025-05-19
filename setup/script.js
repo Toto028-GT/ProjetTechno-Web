@@ -213,7 +213,8 @@ db.users.insertMany([
         dateVisite: "2025-03-18",
         note: ""
       }
-    ]
+    ],
+    phone :"+33 6 12 34 56 78"
   },
   {
     pseudo: "test2",
@@ -257,6 +258,7 @@ db.users.insertMany([
         dateVisite: "2025-03-18",
         note: ""
       }
-    ]
+    ],
+    phone :"+33 6 12 34 56 78"
   }
 ]);
