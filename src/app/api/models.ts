@@ -104,7 +104,7 @@ export async function createNewUser(email: any,password: any, nom: any, prenom: 
     try {
         const collection = await getCollections();
         let element;
-        console.log(getTodayFormatted());
+        if(avatar==""){avatar="https://static.vecteezy.com/ti/vecteur-libre/p1/5544753-profil-icone-design-vecteur-gratuit-vectoriel.jpg"}
         // @ts-ignore
         element = await collection?.insertOne({"email": email,"avatar": avatar, "nom": nom, "prenom": prenom, "mdp": password, "logements": [],"phone": phone , "createdAt" : getTodayFormatted(), "address": adress});
         //Renvoyer le tableau JSON à l'utilisateur

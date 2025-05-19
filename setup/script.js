@@ -214,7 +214,9 @@ db.users.insertMany([
         note: ""
       }
     ],
-    phone :"+33 6 12 34 56 78"
+    phone :"+33 6 12 34 56 78",
+    createdAt : "2024-012-20" ,
+    address : "15 Rue de la Paix Paris France",
   },
   {
     pseudo: "test2",
@@ -259,6 +261,8 @@ db.users.insertMany([
         note: ""
       }
     ],
-    phone :"+33 6 12 34 56 78"
+    phone :"+33 6 12 34 56 78",
+    createdAt : "2024-012-20" ,
+    address : "15 Rue de la Paix Paris France",
   }
 ]);
