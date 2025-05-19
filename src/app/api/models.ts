@@ -1,7 +1,28 @@
 import { ObjectId } from "mongodb";
 import { getCollections } from "./db.ts";
 import { get } from "http";
+import { number } from "zod";
 
+interface Logement {
+  id: number;
+  name: string;
+  adresse: string;
+  image: string;
+  prix: number;
+  superficie: number;
+  chambres: number;
+  sdb: number;
+  parking: boolean;
+  internet: boolean;
+  type: "Appartement" | "Loft" | "Studio" | "Penthouse";
+  location: {
+    lat: number | null;
+    lng: number | null ;
+  };
+  status: string;
+  dateVisite: string;
+  note: string;
+}
 
 export async function getAllAppartFromEmail(email : any){
     try {
@@ -206,18 +227,19 @@ export async function insertAppart(
     name,
     adresse,
     image,
-    prix,
-    superficie,
-    chambres,
-    sdb,
-    parking,
-    internet,
+    prix: Number(prix),
+    superficie : Number(superficie),
+    chambres : Number(chambres),
+    sdb: Number(sdb),
+    parking: Boolean(parking),
+    internet: Boolean(internet),
     type,
     location: {lat, lng},
     status,
     dateVisite,
     note
   };
+  console.log(typeof(newAppart.prix));
   const result = await collection.updateOne(
     { email: email },
     //@ts-ignore
