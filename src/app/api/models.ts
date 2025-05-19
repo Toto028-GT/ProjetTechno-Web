@@ -116,7 +116,7 @@ export async function createNewUser(email: any,password: any, nom: any, prenom: 
 
 export async function getAppartByID(id : any, user : any) {
     const list = await getAllAppartFromEmail(user);
-    return list.find((appart: any) => appart.id === id);
+    return list.find((appart: any) => appart.id === parseInt(id));
 }
 
 export async function updateVisiteStatus(email: string | null | undefined, appartId: number, newStatus: "visiter" | "non visiter" |"visite prévu") {
