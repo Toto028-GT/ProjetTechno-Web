@@ -77,7 +77,7 @@ export default function Home() {
 
       {/* Footer toujours en bas */}
       <footer className="bg-purple-100 text-purple-700 py-8 text-center text-sm z-10">
-        © {new Date().getFullYear()} - MonLogement. Tous droits réservés.
+        © {new Date().getFullYear()} - VosLogements. Tous droits réservés.
       </footer>
     </div>
   );
