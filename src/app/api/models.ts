@@ -197,7 +197,10 @@ export async function insertAppart(
 ) {
   const collection = await getCollections();
   const allApp = await getAllAppartFromEmail(email);
-  const id = Math.max(...allApp.map((app: any) => app.id)) + 1;
+  let id = 0;
+  if (allApp.length !== 0) {
+    id = Math.max(...allApp.map((app: any) => app.id)) + 1;
+  }
   const newAppart = {
     id,
     name,
