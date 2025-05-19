@@ -8,10 +8,6 @@ import { motion } from 'framer-motion';
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-purple-100 to-purple-50 relative overflow-hidden">
-      {/* Image d’arrière-plan */}
-      <div className="absolute inset-0 opacity-10 z-0">
-        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80" alt="Illustration" className="w-full h-full object-cover" />
-      </div>
 
       <main className="flex-grow relative z-10">
         <div className="container mx-auto px-4 py-20">
