@@ -3,8 +3,6 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import icon from '@/app/assets/marker-icon.png';
-import iconShadow from '../../../node_modules/leaflet/dist/images/marker-shadow.png';
 import { LatLngExpression } from 'leaflet';
 import { TileLayer as LeafletTileLayer, TileLayerOptions } from 'leaflet';
 import { Bouton } from './Bouton';
@@ -35,16 +33,13 @@ type MapProps = {
 };
 
 
-let DefaultIcon = L.icon({
-//@ts-ignorets-ignore
-  iconUrl: icon,
-//@ts-ignorets-ignore
-  shadowUrl: iconShadow,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41]
+// Fix Leaflet's default icon path for production (Vercel, etc.)
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+  iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
 });
-
-L.Marker.prototype.options.icon = DefaultIcon;
 
 export default function Map({ logements, style }: { logements: Logement[]; style?: React.CSSProperties }) {
   let position: LatLngExpression;
